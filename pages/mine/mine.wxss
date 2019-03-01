@@ -1,0 +1,155 @@
+/**index.wxss**/
+
+.mainview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  background: linear-gradient(#368299, #368299);
+}
+
+.title_text {
+  font-size: 40rpx;
+  margin-left: 40rpx;
+  color: white;
+}
+
+.shaixuan {
+  height: 70rpx;
+  width: 70rpx;
+  margin-left: 430rpx;
+}
+
+.piliang {
+  height: 70rpx;
+  width: 70rpx;
+  margin-left: 10rpx;
+}
+
+.mode {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+._piliang {
+  height: 80%;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 28%;
+}
+
+.riqi {
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  color: #848484;
+}
+
+.fuhao {
+  margin-left: 10rpx;
+  font-size: 20%;
+}
+
+.bluetriangle {
+  height: 75rpx;
+  width: 75rpx;
+}
+
+._shaixuan {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.all {
+  font-size: 30rpx;
+  height: 80%;
+  width: 28%;
+}
+
+.invoices {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+.one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 110rpx;
+  width: 75%;
+  height: 35rpx;
+}
+
+.index {
+  font-size: 20rpx;
+  color: #848484;
+}
+
+.fp {
+  font-size: 20rpx;
+}
+
+.state0 {
+  font-size: 20rpx;
+  color: red;
+}
+
+.state1 {
+  font-size: 20rpx;
+}
+
+.check {
+  margin-top: 30rpx;
+  margin-left: 50rpx;
+}
+
+.choosebuttonview {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.choosebutton {
+  width: 33.3%;
+  height: 70rpx;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.unchoosebutton {
+  width: 100%;
+  height: 70rpx;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.oneinvoice{
+  background-size: cover;
+  height:225rpx;
+}

@@ -1,0 +1,52 @@
+/* pages/email/email.wxss */
+
+.mainview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200rpx;
+}
+
+.input-email {
+  width: 90%;
+  height: 75rpx;
+  background-color: rgb(238, 234, 234);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.code-line {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+}
+
+.input-code {
+  text-align: center;
+  width: 400rpx;
+  height: 75rpx;
+  background-color: rgb(238, 234, 234);
+  border-radius: 5px;
+}
+
+.send-code {
+  vertical-align: middle;
+  color: rgb(0, 0, 0);
+  width: 245rpx;
+  height: 75rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.send {
+  width: 80%;
+  margin-top: 150rpx;
+  color: #FFFFFF;
+  background-color: #368299;
+}

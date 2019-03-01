@@ -1,0 +1,100 @@
+/* pages/personal/personal.wxss */
+
+.mainview {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+.card {
+  width: 100%;
+  height: 545rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+}
+
+.AvatarUrl {
+  margin-top: 28rpx;
+  height: 209rpx;
+  width: 209rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.NickName {
+  margin-top: 20rpx;
+  font-size: 50rpx;
+}
+
+.edu{
+  font-size: 30rpx;
+  color: #368299;
+  margin-top: 20rpx;
+}
+
+.xian {
+  margin-top: 18rpx;
+  width: 70%;
+  height: 5rpx;
+  background-color: #e9e9e9;
+}
+
+.ciview{
+  display: flex;
+  flex-direction: row;
+}
+
+.vip{
+  font-size: 80rpx;
+}
+
+.ci{
+  margin-top: 50rpx;
+  color: #368299;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  background-color: #ffffff;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 15rpx;
+  height: 100%;
+  width: 12%;
+}
+
+.symbol {
+  margin-left: 340rpx;
+  color: #7c7c7c;
+}
+
+.text {
+  width: 33%;
+}
+
+.divide {
+  background-color: #f2f2f2;
+  width: 85%;
+  align-self: flex-end;
+  height: 2rpx;
+}
+
+.vipview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

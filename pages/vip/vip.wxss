@@ -1,0 +1,15 @@
+/* pages/vip/vip.wxss */
+.mainview{
+  width: 100%;
+}
+.post{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 85%
+}
+
+.button{
+  width: 80%;
+  background-color: #368299;
+  color: #FFFFFF;
+}

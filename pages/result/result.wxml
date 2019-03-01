@@ -1,0 +1,88 @@
+<view class='all' style='{{allstyle}}'>
+  <view class='fp' style='height:{{fp_height}}rpx;background-image:url("{{img}}");background-size: cover;'>
+    <!-- 分割线 -->
+    <view class='xian' style='margin-top:103rpx;'></view>
+    <view class='topline'>
+      <text wx:if='{{data.state==0}}'>{{data.fp_zl}}</text>
+      <text wx:else>{{data.fplx}}</text>
+    </view>
+    <view class='detail'>
+      <view class='textbox' wx:if='{{data.state==1}}'>
+        <text class='topic'>查验时间:</text>
+        <text class='item'>{{data.time}}</text>
+      </view>
+      <view class='textbox'>
+        <text class='topic'>发票代码：</text>
+        <text wx:if='{{data.state==0}}' class='item'>{{data.fp_dm}}</text>
+        <text wx:else class='item'>{{data.fpdm}}</text>
+      </view>
+      <view class='textbox'>
+        <text class='topic'>发票号码：</text>
+        <text wx:if='{{data.state==0}}' class='item'>{{data.fp_hm}}</text>
+        <text wx:else class='item'>{{data.fphm}}</text>
+      </view>
+      <view class='textbox'>
+        <text class='topic'>金额：</text>
+        <text wx:if='{{data.state==0}}' class='item'>{{data.kp_je}}</text>
+        <text wx:else class='item'>{{data.sumamount}}</text>
+      </view>
+      <view class='textbox'>
+        <text class='topic'>开票日期：</text>
+        <text wx:if='{{data.state==0}}' class='item'>{{data.kp_rq}}</text>
+        <text wx:else class='item'>{{data.kprq}}</text>
+      </view>
+      <view class='textbox'>
+        <text class='topic'>校验码：</text>
+        <text wx:if='{{data.state==0}}' class='item'>{{data.jy}}</text>
+        <text wx:else class='item'>{{data.code}}</text>
+      </view>
+      <!-- 分割线 -->
+      <view wx:if='{{data.state==1}}' class='xian' style='width:81%'></view>
+      <view class='checkedinfo' wx:if='{{data.state==1}}'>
+        <view class='textbox'>
+          <text class='topic'>购买方：</text>
+          <text class='item'>{{data.gfMc}}</text>
+        </view>
+        <view class='textbox'>
+          <text class='topic'>销售方：</text>
+          <text class='item'>{{data.xfMc}}</text>
+        </view>
+        <!-- 分割线 -->
+        <view class='xian' style='width:81%'></view>
+        <view class='textbox' id='attrs'>
+          <text style='width:30%'>货物或对应劳务、服务名称</text>
+          <text>数量</text>
+          <text>单价</text>
+          <text>金额</text>
+          <text>税率</text>
+        </view>
+        <swiper class='swiper' autoplay='true' indicator-dots='true'>
+          <swiper-item class='swiper-item' wx:for='{{data.goodsData}}'>
+            <view class='moreinfo' style='width:270rpx'>{{item.name}}</view>
+            <view style='width:155rpx'></view>
+            <view class='moreinfo' style='width:70rpx'>{{item.amount}}</view>
+            <view style='width:115rpx'></view>
+            <view class='moreinfo' style='width:70rpx'>{{item.priceUnit}}</view>
+            <view style='width:115rpx'></view>
+            <view class='moreinfo' style='width:70rpx'>{{item.priceSum}}</view>
+            <view style='width:115rpx'></view>
+            <view class='moreinfo' style='width:70rpx'>{{item.taxRate}}</view>
+          </swiper-item>
+        </swiper>
+        <!-- end checkinfo -->
+      </view>
+    </view>
+    <!-- end detial -->
+    <image wx:if='{{data.state==0}}' src='unchecked.png' class='unchecked'></image>
+  </view>
+  <!-- end fp -->
+  <view class='buttons'>
+    <view wx:if='{{data.state==1}}'>
+      <button class='button' style='color:#368299' bindtap='previewing'>查验原图</button>
+      <button class='button' style='color:#368299' bindtap='send_email'>发送邮箱</button>
+    </view>
+    <button wx:if='{{data.state==0}}' class='button' style='color:#368299' bindtap='check'>查验</button>
+    <button class='button' bindtap='back'>返回票夹</button>
+    <view style='height:30rpx'></view>
+  </view>
+</view>

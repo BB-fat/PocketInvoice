@@ -1,0 +1,28 @@
+<!--pages/manual/manual.wxml-->
+<view class='mainview' style='height:{{screenHeight}}px'>
+  <view style='margin-top: 100rpx;'></view>
+  <view class='line'>
+    <text class='text'>发票代码</text>
+    <input value='{{data.fp_dm}}' class='input' type='number' bindinput='fp_dm' maxlength='12'></input>
+  </view>
+  <view class='line'>
+    <text class='text'>发票号码</text>
+    <input value='{{data.fp_hm}}' class='input' type='number' bindinput='fp_hm' maxlength='8'></input>
+  </view>
+  <view class='line'>
+    <text class='text'>开票金额</text>
+    <input value='{{data.kp_je}}' class='input' type='digit' bindinput='kp_je'></input>
+  </view>
+  <view class='line'>
+    <text class='text'>开票日期</text>
+    <picker class='input' id='picker' mode='date' fields='day' bindchange='choosedate' start='{{start}}' end='{{end}}'>{{data.kp_rq}}</picker>
+  </view>
+  <view class='line'>
+    <text class='text'>校验码</text>
+    <input value='{{data.jy}}' class='input' type='number' bindinput='jy' maxlength='20'></input>
+  </view>
+  <view class='buttons' style='margin-top: {{screenHeight*0.2}}px;'>
+    <button class='button' bindtap='saveinvoice' style='color:#368299'>录入发票</button>
+    <button class='button' bindtap='tapQueryEvent'>单张查验</button>
+  </view>
+</view>

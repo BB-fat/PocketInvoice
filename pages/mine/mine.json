@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#F2F2F2",
+  "navigationBarTitleText": "发票夹",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#F2F2F2",
+  "enablePullDownRefresh":true
+}

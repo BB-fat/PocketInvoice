@@ -1,5 +1,5 @@
 <!--pages/vip/vip.wxml-->
 <view class='mainview' style='height:{{windowHeight}}px'>
 <image class='post' src='post.png'></image>
-<button class='button'>立即充值</button>
+<button class='button' bindtap='pay'>立即充值</button>
 </view>

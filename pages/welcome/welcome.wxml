@@ -1,2 +1,14 @@
-<!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
+<view class="mainview">
+  <view style='height:100rpx;'></view>
+  <text class="title">亲爱的用户</text>
+  <text class="text">感谢您使用口袋发票小程序，接下来是本程序主要功能的简单介绍
+本程序提供“入录发票”、“单张查验”、“批量查验”等便捷功能</text>
+  <text class="title">录入发票</text>
+  <text class="text">口袋发票为每一个用户提供专属票夹以储存发票供随时分析与查验，点击入录发票即可将发票添加至你的票夹</text>
+  <text class="title">单张查验</text>
+  <text class="text">口袋发票提供免费的单张发票查验功能</text>
+  <text class="title">批量查验</text>
+  <text class="text">口袋发票还可以将用户票夹中选中的发票进行付费但快速的批量查验与图表分析</text>
+  <text class="text" style='color:red'>新用户赠送批量查验额度5次</text>
+  <button class="button" bindtap="start">立即开始</button>
+</view>

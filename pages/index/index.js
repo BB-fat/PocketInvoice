@@ -102,6 +102,7 @@ Page({
         })
         //发送资料包
         that.data.data = {
+          "fp_qz": stringArray[1],
           "fp_dm": stringArray[2],
           "fp_hm": stringArray[3],
           "kp_je": stringArray[4],
@@ -150,6 +151,7 @@ Page({
           return
         }
         that.data.data = {
+          "fp_qz":stringArray[1],
           "fp_dm": stringArray[2],
           "fp_hm": stringArray[3],
           "kp_je": stringArray[4],

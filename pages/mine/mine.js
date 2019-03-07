@@ -12,12 +12,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pocket: [],       //发票夹
-    date: 0,          //筛选月份
-    shaixuan: false,  //筛选开关
-    piliang: false,   //批量开关
-    fun_one: 'one',   //单个发票绑定的点击函数（两种状态）
-    checked: [],      //选框列表
+    invoices: [], //全部发票信息
+    pocket: [], //发票夹
+    date: 0, //筛选月份
+    zl: 0, //发票种类
+    shaixuan: false, //筛选开关
+    piliang: false, //批量开关
+    fun_one: 'one', //单个发票绑定的点击函数（两种状态）
+    checked: [], //选框列表
     chooseall: false, //全选开关
   },
   //筛选按钮
@@ -92,6 +94,54 @@ Page({
     sendmsg(t_data)
   },
 
+  //发票种类筛选模块
+  changezl: function(e) {
+    this.setData({
+      zl: e.detail.value,
+    })
+    if (this.data.zl == 0) {
+      this.setData({
+        pocket: this.data.invoices
+      })
+    }
+    //增值税电子普通发票
+    else if (this.data.zl == 1) {
+      this.data.pocket = []
+      for (var i = 0; i < this.data.invoices.length; i++) {
+        if (this.data.invoices[i]['fp_qz'] == '10') {
+          this.data.pocket.push(this.data.invoices[i])
+        }
+      }
+      this.setData({
+        pocket: this.data.pocket
+      })
+    } 
+    //增值税普通发票
+    else if (this.data.zl == 2) {
+      this.data.pocket = []
+      for (var i=0;i<this.data.invoices.length;i++) {
+        if (this.data.invoices[i]['fp_qz'] == '04') {
+          this.data.pocket.push(this.data.invoices[i])
+        }
+      }
+      this.setData({
+        pocket: this.data.pocket
+      })
+    }
+    //增值税专用发票
+    else if (this.data.zl == 3) {
+      this.data.pocket = []
+      for (var i = 0; i < this.data.invoices.length; i++) {
+        if (this.data.invoices[i]['fp_qz'] == '01') {
+          this.data.pocket.push(this.data.invoices[i])
+        }
+      }
+      this.setData({
+        pocket: this.data.pocket
+      })
+    }
+  },
+
   //进入一张发票的result页
   one: function(e) {
     //向result界面传送发票数据
@@ -115,14 +165,14 @@ Page({
   //批量查验
   checkall: function() {
     //检查vip状态
-    if(app.globalData.userdata['vip']==0){
+    if (app.globalData.userdata['vip'] == 0) {
       wx.showModal({
         title: '温馨提示',
         content: '您的批量查验额度已用完，是否充值？',
-        confirmText:"立刻充值",
-        confirmColor:"#368299",
-        success:function(res){
-          if(res.confirm){
+        confirmText: "立刻充值",
+        confirmColor: "#368299",
+        success: function(res) {
+          if (res.confirm) {
             wx.navigateTo({
               url: '../vip/vip',
             })
@@ -163,13 +213,13 @@ Page({
       'cmd': 113,
       'list': []
     }
-    var temp=[]//用以储存删除后的选框状态列表
+    var temp = [] //用以储存删除后的选框状态列表
     //生成已选信息列表
     for (var i = 0; i < that.data.checked.length; i++) {
       if (that.data.checked[i]) {
         t_data['list'].push(that.data.pocket[i]['fp_dm'] + that.data.pocket[i]['fp_hm'])
-      }else{
-        temp.pop(false)   //重设选中状态
+      } else {
+        temp.pop(false) //重设选中状态
       }
     }
     if (t_data['list'] == '') {
@@ -196,7 +246,7 @@ Page({
             piliang: false,
             scroll_height: that.data.scroll_height + that.data.windowHeight * 0.08,
             fun_one: 'one',
-            checked:temp    //还原选择状态列表
+            checked: temp //还原选择状态列表
           })
         }
       }
@@ -248,23 +298,23 @@ Page({
     })
   },
 
-//全选已查验过的发票
-  choosechecked:function(){
-    for(var i=0;i<this.data.pocket.length;i++){
-      if(this.data.pocket[i]['state']==1){
-        this.data.checked[i]=true
-      }else{
-        this.data.checked[i]=false
+  //全选已查验过的发票
+  choosechecked: function() {
+    for (var i = 0; i < this.data.pocket.length; i++) {
+      if (this.data.pocket[i]['state'] == 1) {
+        this.data.checked[i] = true
+      } else {
+        this.data.checked[i] = false
       }
     }
     this.setData({
-      checked:this.data.checked,
-      chooseall:true
+      checked: this.data.checked,
+      chooseall: true
     })
   },
 
-//全选未查验的发票
-  chooseunchecked:function(){
+  //全选未查验的发票
+  chooseunchecked: function() {
     for (var i = 0; i < this.data.pocket.length; i++) {
       if (this.data.pocket[i]['state'] == 0) {
         this.data.checked[i] = true
@@ -294,8 +344,8 @@ Page({
     var that = this
     //初始化各种状态
     this.setData({
-      pocket: this.data.pocket,
       date: 0,
+      zl: 0,
       shaixuan: false,
       piliang: false,
       scroll_height: this.data.windowHeight * 0.92,
@@ -319,7 +369,8 @@ Page({
           return
         } else {
           that.setData({
-            'pocket': data['pocket']
+            invoices: data['pocket'],
+            pocket: data['pocket'],
           })
           for (var i = 0; i < Object.keys(data['pocket']).length; i++) {
             that.data.checked[i] = false
@@ -329,7 +380,7 @@ Page({
       //更新批量查验的结果
       else if (data['cmd'] == 209) {
         //减少批量查验额度
-        app.globalData.userdata['vip'] = app.globalData.userdata['vip']-1
+        app.globalData.userdata['vip'] = app.globalData.userdata['vip'] - 1
         that.data.pocket[data['index']]['state'] = 1
         that.setData({
           pocket: that.data.pocket
@@ -377,9 +428,9 @@ Page({
       }
       //在此添加后续指令
     })
-  },//end onShow
+  }, //end onShow
 
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function() {
     var t_data = JSON.stringify({
       "cmd": 111,
       "date": this.data.date,

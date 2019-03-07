@@ -14,8 +14,14 @@
       <image src='bluetriangle.png' class='bluetriangle'></image>
     </view>
     <picker class='_shaixuan' wx:if='{{shaixuan==true}}' mode='date' fields='month' value='{{date}}' bindchange='changedate'>
-      <view wx:if='{{date==0}}'>点击选择月份</view>
+      <view wx:if='{{date==0}}'>选择月份</view>
       <view wx:else>{{date}}</view>
+    </picker>
+    <picker class='_shaixuan' wx:if='{{shaixuan==true}}' mode='selector'range='{{["全部","增值税电子普通发票","增值税普通发票","增值税专用发票"]}}' bindchange='changezl' style='margin-left: 40rpx;font-size:25rpx;'>
+    <view wx:if='{{zl==0}}'>选择发票种类</view>
+    <view wx:elif='{{zl==1}}'>增值税电子普通发票</view>
+    <view wx:elif='{{zl==2}}'>增值税普通发票</view>
+    <view wx:elif='{{zl==3}}'>增值税专用发票</view>
     </picker>
     <button class='all' wx:if='{{date!=0}}' bindtap='all'>全部发票</button>
   </view>
@@ -60,7 +66,7 @@
   </scroll-view>
   <!-- 用户发票夹为空 -->
   <view wx:elif='{{pocket==""&&shaixuan==false}}' style='align-self:center;margin-top:40rpx;color:#848484;height:{{windowHeight*0.73}}px'>——您的发票夹是空的——</view>
-  <view wx:else style='align-self:center;margin-top:40rpx;color:#848484;height:{{windowHeight*0.73}}px'>——该时间段查无发票——</view>
+  <view wx:else style='align-self:center;margin-top:40rpx;color:#848484;height:{{windowHeight*0.73}}px'>——查无发票——</view>
   <!-- 批处理模块 -->
   <view wx:if='{{piliang}}' class='mode' style='height:{{windowHeight*0.08}}px'>
     <button class='_piliang' style='color:#368299' bindtap='checkall'>一键查验</button>

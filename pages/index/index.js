@@ -63,6 +63,15 @@ Page({
           icon: 'success',
         })
       }
+      //开票时间在一年以前，无法查验
+      else if(data['cmd']==206){
+        that.setData({
+          mainhide: !that.data.mainhide
+        })
+        wx.showToast({
+          title: '开票时间一年以上无法查验',
+        })
+      }
     }) //end socketmessage
   },
 

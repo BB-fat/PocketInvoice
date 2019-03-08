@@ -57,7 +57,7 @@ Page({
           return 0;
         }
         //超次数返回主页
-        else if (data['error'] == "超过该张发票当日查验次数(请于次日再次查验)!") {
+        else if (data['error'] == "超过该张发票当日查验次数(请于次日再次查验)!" || data['error'] =='查无此票') {
           wx.showToast({
             title: data['error'],
             icon: 'none',

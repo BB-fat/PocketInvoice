@@ -99,7 +99,7 @@ export function getNowFormatDate(i) {
     var year = date.getFullYear()-1;
   }
   var month = date.getMonth() + 1;
-  var strDate = date.getDate();
+  var strDate = date.getDate()+1;
   if (month >= 1 && month <= 9) {
     month = "0" + month;
   }

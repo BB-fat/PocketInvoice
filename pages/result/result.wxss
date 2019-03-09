@@ -32,16 +32,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+    margin-top: 15rpx;
 }
 
 .topic {
-  margin-top: 30rpx;
   margin-left: 70rpx;
   color: #b1b1b1b1;
 }
 
 .item {
-  margin-top: 30rpx;
   margin-right: 70rpx;
 }
 

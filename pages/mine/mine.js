@@ -367,7 +367,6 @@ Page({
     })
     var t_data = JSON.stringify({
       "cmd": 111,
-      "date": this.data.date,
     })
     sendmsg(t_data)
     wx.onSocketMessage(function(res) {
@@ -449,7 +448,6 @@ Page({
     })
     var t_data = JSON.stringify({
       "cmd": 111,
-      "date": this.data.date,
     })
     sendmsg(t_data)
   },

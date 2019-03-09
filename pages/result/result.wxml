@@ -26,6 +26,11 @@
         <text wx:if='{{data.state==0}}' class='item'>{{data.kp_je}}</text>
         <text wx:else class='item'>{{data.goodsamount}}</text>
       </view>
+      <!-- 查验后显示价税合计 -->
+      <view class='textbox' wx:if='{{data.state==1}}'>
+        <text class='topic'>价税合计：</text>
+        <text class='item'>{{data.sumamount}}</text>
+      </view>
       <view class='textbox'>
         <text class='topic'>开票日期：</text>
         <text wx:if='{{data.state==0}}' class='item'>{{data.kp_rq}}</text>

@@ -74,9 +74,13 @@
 }
 
 .all {
-  font-size: 30rpx;
-  height: 80%;
-  width: 28%;
+  display:flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  font-size: 25rpx;
+  height: 70%;
+  width: 20%;
 }
 
 .invoices {

@@ -15,7 +15,7 @@ Page({
     invoices: [], //全部发票信息
     pocket: [], //发票夹
     date: 0, //筛选月份
-    zl: 0, //发票种类
+    zl: 0, //发票种类  -1代表未筛选状态
     shaixuan: false, //筛选开关
     piliang: false, //批量开关
     fun_one: 'one', //单个发票绑定的点击函数（两种状态）
@@ -72,13 +72,12 @@ Page({
   //恢复显示全部
   all: function() {
     this.setData({
-      date: 0
+      date: 0,
+      zl: 0
     })
-    var t_data = JSON.stringify({
-      "cmd": 111,
-      "date": this.data.date,
+    this.setData({
+      pocket: this.data.invoices
     })
-    sendmsg(t_data)
   },
 
   //时间筛选模块
@@ -86,60 +85,73 @@ Page({
     this.setData({
       date: e.detail['value']
     })
-    console.log('changedate:' + this.data.date)
-    var t_data = JSON.stringify({
-      "cmd": 111,
-      "date": this.data.date,
+    var datearr = this.data.date.split('-')
+    var temp = []
+    for (var i = 0; i < this.data.invoices.length; i++) {
+      if (this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+        if (this.data.zl == 0 || this.data.invoices[i]['fp_qz'] == this.data.zl) {
+          temp.push(this.data.invoices[i])
+        }
+      }
+    }
+    this.setData({
+      pocket: temp
     })
-    sendmsg(t_data)
   },
 
   //发票种类筛选模块
   changezl: function(e) {
-    this.setData({
-      zl: e.detail.value,
-    })
-    if (this.data.zl == 0) {
-      this.setData({
-        pocket: this.data.invoices
-      })
+    var tempzl = 0
+    if (e.detail.value == 0) {
+      tempzl = "10"
+    } else if (e.detail.value == 1) {
+      tempzl = "04"
+    } else {
+      tempzl = "01"
     }
+    this.setData({
+      zl: tempzl,
+    })
+    //判断日期筛选是否启动
+    if (this.data.date != 0) {
+      var datearr = this.data.date.split('-')
+    }
+    var temp = []
     //增值税电子普通发票
-    else if (this.data.zl == 1) {
-      this.data.pocket = []
+    if (this.data.zl == "10") {
       for (var i = 0; i < this.data.invoices.length; i++) {
         if (this.data.invoices[i]['fp_qz'] == '10') {
-          this.data.pocket.push(this.data.invoices[i])
+          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+            temp.push(this.data.invoices[i])
+          }
         }
       }
-      this.setData({
-        pocket: this.data.pocket
-      })
-    } 
+    }
     //增值税普通发票
-    else if (this.data.zl == 2) {
-      this.data.pocket = []
-      for (var i=0;i<this.data.invoices.length;i++) {
+    else if (this.data.zl == "04") {
+      var temp = []
+      for (var i = 0; i < this.data.invoices.length; i++) {
         if (this.data.invoices[i]['fp_qz'] == '04') {
-          this.data.pocket.push(this.data.invoices[i])
+          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+            temp.push(this.data.invoices[i])
+          }
         }
       }
-      this.setData({
-        pocket: this.data.pocket
-      })
     }
     //增值税专用发票
-    else if (this.data.zl == 3) {
-      this.data.pocket = []
+    else if (this.data.zl == "01") {
+      var temp = []
       for (var i = 0; i < this.data.invoices.length; i++) {
         if (this.data.invoices[i]['fp_qz'] == '01') {
-          this.data.pocket.push(this.data.invoices[i])
+          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+            temp.push(this.data.invoices[i])
+          }
         }
       }
-      this.setData({
-        pocket: this.data.pocket
-      })
     }
+    this.setData({
+      pocket: temp
+    })
   },
 
   //进入一张发票的result页
@@ -431,6 +443,10 @@ Page({
   }, //end onShow
 
   onPullDownRefresh: function() {
+    this.setData({
+      date: 0,
+      zl: 0
+    })
     var t_data = JSON.stringify({
       "cmd": 111,
       "date": this.data.date,

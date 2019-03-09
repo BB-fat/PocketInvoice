@@ -22,9 +22,9 @@
         <text wx:else class='item'>{{data.fphm}}</text>
       </view>
       <view class='textbox'>
-        <text class='topic'>金额：</text>
+        <text class='topic'>开票金额(不含税)：</text>
         <text wx:if='{{data.state==0}}' class='item'>{{data.kp_je}}</text>
-        <text wx:else class='item'>{{data.sumamount}}</text>
+        <text wx:else class='item'>{{data.goodsamount}}</text>
       </view>
       <view class='textbox'>
         <text class='topic'>开票日期：</text>

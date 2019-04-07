@@ -1,13 +1,15 @@
 <!--pages/newindex/newindex.wxml-->
 <import src='../../templates/myButton/myButton.wxml' />
 
-<view class='first-floor'>
+<view class='first-floor' style='height:{{firstFloorHeight}}%'>
   <scroll-view class='scrollView' scroll-x>
-    <view class='cardView'>
+    <view class='cardView' bindtap='toPersonal' hover-class='default-hover'>
       <view class='cardItemView'>
         <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image>
         <open-data class='cardItem avatar' type='userAvatarUrl'></open-data>
         <open-data class='cardItem nickName' type='userNickName'></open-data>
+        <text class='cardItem card1-firstline'>剩余批量查验次数</text>
+        <text class='cardItem card1-secondline'>{{limit}}</text>
       </view>
     </view>
     <view class='cardView'>
@@ -34,4 +36,6 @@
     <template is='tabBarButton' data='{{...pocket}}' />
   </view>
 </view>
-<view class='mainView background'></view>
+<view class='mainView background'>
+  <view class='bottomText'>All Rights Reserved</view>
+</view>

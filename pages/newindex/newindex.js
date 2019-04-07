@@ -12,50 +12,54 @@ Page({
    * 页面的初始数据
    */
   data: {
+    firstFloorHeight: 72,
     singleCheck: {
       iconSrc: "../../imgs/index/tabbar_icon_singlecheck_default@2x.png",
       text: "单张查验",
       tapFun: "singleCheck"
     },
-    saveInvoice:{
-      iconSrc:"../../imgs/index/tabbar_icon_saveinvoice_default@2x.png",
-      text:"录入发票",
-      tapFun:'saveinvoice'
+    saveInvoice: {
+      iconSrc: "../../imgs/index/tabbar_icon_saveinvoice_default@2x.png",
+      text: "录入发票",
+      tapFun: 'saveinvoice'
     },
-    manual:{
-      iconSrc:"../../imgs/index/tabbar_icon_manualsave_default@2x.png",
-      text:"手动录入",
-      tapFun:"manual"
+    manual: {
+      iconSrc: "../../imgs/index/tabbar_icon_manualsave_default@2x.png",
+      text: "手动录入",
+      tapFun: "manual"
     },
-    vip:{
-      iconSrc:"../../imgs/index/tabbar_icon_purchase_default@2x.png",
-      text:"额度购买",
-      tapFun:"vip"
+    vip: {
+      iconSrc: "../../imgs/index/tabbar_icon_purchase_default@2x.png",
+      text: "额度购买",
+      tapFun: "vip"
     },
-    pocket:{
-      iconSrc:"../../imgs/index/tabbar_icon_invoices_default@2x.png",
-      text:"发票夹",
-      tapFun:"toPocket",
-      width:120,
-      height:60
+    pocket: {
+      iconSrc: "../../imgs/index/tabbar_icon_invoices_default@2x.png",
+      text: "发票夹",
+      tapFun: "toPocket",
+      width: 120,
+      height: 60
     }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
+  onLoad: function() {
+    wx.setBackgroundColor({
+      backgroundColorTop: '#f0f3f5',
+      backgroundColorBottom: '#5087c8'
+    })
   },
 
-  onShow:function(){
+  onShow: function() {
     var that = this
     //等待接收服务器回传的信息
-    wx.onSocketMessage(function (res) {
+    wx.onSocketMessage(function(res) {
       console.log('recieve:' + res.data)
       var data = JSON.parse(res.data)
       //获取用户相关状态
       if (data['cmd'] == 210) {
+        that.setData({
+          limit: data['vip']
+        })
         var tempUserdata = {
           'address': data['address'],
           'vip': data['vip']
@@ -158,7 +162,7 @@ Page({
   }, //end bindtap
 
   //录入发票
-  saveinvoice: function () {
+  saveinvoice: function() {
     var that = this
     wx.scanCode({
       scanType: ['qrCode'],
@@ -207,22 +211,40 @@ Page({
   },
 
   //跳转至手动录入
-  manual: function () {
+  manual: function() {
     wx.navigateTo({
       url: '../manual/manual',
     })
   },
 
   //访问vip升级界面
-  vip: function () {
+  vip: function() {
     wx.navigateTo({
       url: '../vip/vip',
     })
   },
 
-  toPocket:function(){
+  // 跳转至发票夹
+  toPocket: function() {
+    var that = this
+    // wx.navigateTo({
+    //   url: '../mine/mine',
+    // })
+    var i=72
+    var interval = setInterval(function() {
+      i--
+      that.setData({
+        firstFloorHeight:i
+      })
+      if(i<=15){
+        clearInterval(interval)
+      }
+    }, 10)
+  },
+
+  toPersonal: function() {
     wx.navigateTo({
-      url: '../mine/mine',
+      url: '../personal/personal',
     })
   },
 })

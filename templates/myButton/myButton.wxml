@@ -1,0 +1,7 @@
+<!-- 首页导航栏按钮，可选参数height、width -->
+<template name='tabBarButton'>
+  <view class='tabBarButton-view' hover-class='tabBarButton-icon-hover' bindtap='{{tapFun}}'>
+    <image src='{{iconSrc}}' class='tabBarButton-icon' style='height:{{height}}rpx;width:{{width}}rpx;'></image>
+    <text class='tabBarButton-text'>{{text}}</text>
+  </view>
+</template>

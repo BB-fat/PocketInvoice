@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/newindex/newindex",
     "pages/index/index",
     "pages/yz/yz",
     "pages/result/result",
@@ -13,34 +14,10 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#368299",
+    "navigationBarBackgroundColor": "#f0f3f5",
     "navigationBarTitleText": "口袋发票",
-    "navigationBarTextStyle": "white",
-    "backgroundColor":"#368299"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f0f3f5"
   },
-  "tabBar": {
-    "color": "#2a5caa",
-    "selectedColor": "#2a5caa",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "查验",
-        "iconPath": "imgs/_checkicon.png",
-        "selectedIconPath": "imgs/checkicon.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "发票夹",
-        "iconPath": "imgs/_mineicon.png",
-        "selectedIconPath": "imgs/mineicon.png"
-      },
-      {
-        "pagePath": "pages/personal/personal",
-        "text": "个人",
-        "iconPath": "imgs/_personal.png",
-        "selectedIconPath": "imgs/personal.png"
-      }
-    ]
-  }
+  "sitemapLocation": "sitemap.json"
 }

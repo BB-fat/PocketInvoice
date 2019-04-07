@@ -1,0 +1,37 @@
+<!--pages/newindex/newindex.wxml-->
+<import src='../../templates/myButton/myButton.wxml' />
+
+<view class='first-floor'>
+  <scroll-view class='scrollView' scroll-x>
+    <view class='cardView'>
+      <view class='cardItemView'>
+        <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image>
+        <open-data class='cardItem avatar' type='userAvatarUrl'></open-data>
+        <open-data class='cardItem nickName' type='userNickName'></open-data>
+      </view>
+    </view>
+    <view class='cardView'>
+      <view class='cardItemView'>
+        <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image>
+      </view>
+    </view>
+    <view class='cardView'>
+      <view class='cardItemView'>
+        <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='buttonView'>
+    <template is='tabBarButton' data='{{...singleCheck}}' />
+    <template is='tabBarButton' data='{{...saveInvoice}}' />
+    <template is='tabBarButton' data='{{...manual}}' />
+    <template is='tabBarButton' data='{{...vip}}' />
+  </view>
+</view>
+
+<view class='second-floor'>
+  <view class='pocketView'>
+    <template is='tabBarButton' data='{{...pocket}}' />
+  </view>
+</view>
+<view class='mainView background'></view>

@@ -39,13 +39,33 @@ Page({
       tapFun: "toPocket",
       width: 120,
       height: 60
+    },
+    lineButton1: {
+      iconSrc: "../../imgs/index/mineicon.png",
+      text: '我的票夹',
+      tapFun: "toPocket"
+    },
+    lineButton2: {
+      iconSrc: '../../imgs/index/email.png',
+      text: '邮箱设置',
+      tapFun: 'toEmail'
+    },
+    lineButton3: {
+      iconSrc: '../../imgs/index/help.png',
+      text: '使用帮助',
+      tapFun: 'toHelp'
+    },
+    lineButton4: {
+      iconSrc: '../../imgs/index/about.png',
+      text: '关于我们',
+      tapFun: 'toAbout'
     }
   },
 
   onLoad: function() {
     wx.setBackgroundColor({
-      backgroundColorTop: '#f0f3f5',
-      backgroundColorBottom: '#5087c8'
+      backgroundColorTop: '#6193cd',
+      backgroundColorBottom: '#f2f2f2'
     })
   },
 
@@ -226,25 +246,32 @@ Page({
 
   // 跳转至发票夹
   toPocket: function() {
-    var that = this
-    // wx.navigateTo({
-    //   url: '../mine/mine',
-    // })
-    var i=72
-    var interval = setInterval(function() {
-      i--
-      that.setData({
-        firstFloorHeight:i
-      })
-      if(i<=15){
-        clearInterval(interval)
-      }
-    }, 10)
+    wx.navigateTo({
+      url: '../mine/mine',
+    })
   },
 
   toPersonal: function() {
     wx.navigateTo({
       url: '../personal/personal',
+    })
+  },
+
+  toEmail: function() {
+    wx.navigateTo({
+      url: '../email/email',
+    })
+  },
+
+  toHelp: function() {
+    wx.navigateTo({
+      url: '../welcome/welcome',
+    })
+  },
+
+  toAbout: function() {
+    wx.navigateTo({
+      url: '../about/about',
     })
   },
 })

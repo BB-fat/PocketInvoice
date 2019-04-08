@@ -1,16 +1,16 @@
 /* pages/newindex/newindex.wxss */
 
-.first-floor {
-  display: flex;
+.second-floor{
+    display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  z-index: 2;
-  background-color: #f0f3f5;
-  border-radius: 0px 0px 88rpx 88rpx;
+  z-index: 1;
+}
+
+.second-floor-top {
   width: 100%;
-  height: 75%;
-  box-shadow: 0px 1px 10px 1px rgb(71, 101, 167);
+  height: 40%;
 }
 
 .cardImg {
@@ -26,10 +26,10 @@
   margin-top: 30rpx;
 }
 
-.nickName{
+.nickName {
   font-size: 40rpx;
   margin-top: 185rpx;
-  color: white;
+  color: black;
 }
 
 .scrollView {
@@ -48,6 +48,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+    height: 480rpx;
+  width: 380rpx;
 }
 
 .cardItem {
@@ -55,20 +58,20 @@
   z-index: 3;
 }
 
-.card1-firstline{
+.card1-firstline {
   margin-top: 290rpx;
-  color: #f0f3f5;
+  color: black;
   font-size: 28rpx;
 }
 
-.card1-secondline{
+.card1-secondline {
   margin-top: 350rpx;
   font-size: 80rpx;
-  color: #f0f3f5;
+  color: black;
 }
 
 .buttonView {
-  margin-top: 90rpx;
+  margin-top: 60rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,28 +79,16 @@
   width: 80%;
 }
 
-.second-floor {
-  position: absolute;
-  z-index: 1;
-  background-color: #6193cd;
-  border-radius: 0px 0px 88rpx 88rpx;
-  height: 88%;
+.second-floor-bottom {
+  background-color: #f2f2f2;
+  border-radius: 88rpx 88rpx 0rpx 0rpx;
+  height: 55%;
   width: 100%;
-  box-shadow: 0px 1px 10px 1px rgb(71, 101, 167);
-}
-
-.pocketView {
-  width: 100%;
-  margin-top: 940rpx;
+  bottom: 0rpx;
 }
 
 .background {
   position: absolute;
   z-index: 0;
-  background-color: #5087c8;
-}
-
-.bottomText{
-  margin-top: 1120rpx;
-  font-size: 30rpx;
+  background-color: #6193cd;
 }

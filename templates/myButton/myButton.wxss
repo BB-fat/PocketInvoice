@@ -9,11 +9,35 @@
   width: 100rpx;
 }
 
-.tabBarButton-icon-hover {
+.tabBarButton-hover {
   opacity: 0.6;
 }
 
 .tabBarButton-text {
   margin-top: 8rpx;
   font-size: 26rpx;
+}
+
+.lineButton-view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100rpx;
+  width: 100%;
+  background-color: white;
+}
+
+.lineButton-img{
+  height: 70rpx;
+  width: 70rpx;
+  margin-left: 30rpx;
+}
+
+.lineButton-text{
+  margin-left: 50rpx;
+  font-size: 36rpx;
+}
+
+.lineButton-hover{
+  background-color: #FAFAFA;
 }

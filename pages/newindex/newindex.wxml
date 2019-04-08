@@ -5,21 +5,22 @@
   <scroll-view class='scrollView' scroll-x>
     <view class='cardView' bindtap='toPersonal' hover-class='default-hover'>
       <view class='cardItemView'>
-        <!-- <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image> -->
         <open-data class='cardItem avatar' type='userAvatarUrl'></open-data>
         <open-data class='cardItem nickName' type='userNickName'></open-data>
+        <view class='cardItem card1-midline'></view>
         <text class='cardItem card1-firstline'>剩余批量查验次数</text>
-        <text class='cardItem card1-secondline'>{{limit}}</text>
+        <view class='cardItem card1-secondline'>
+        <text style='font-size:80rpx'>{{limit}}</text>
+        <text class='card1-secondline-ci'>次</text>
+        </view>
       </view>
     </view>
     <view class='cardView'>
       <view class='cardItemView'>
-        <!-- <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image> -->
       </view>
     </view>
     <view class='cardView'>
       <view class='cardItemView'>
-        <!-- <image src='../../imgs/index/mian_card_personalinformation@2x.png' class='cardImg'></image> -->
       </view>
     </view>
   </scroll-view>
@@ -35,7 +36,7 @@
   </view>
   <view style='height:50rpx;'></view>
   <template is='lineButton' data='{{...lineButton1}}'/>
-  <view style='height:30rpx;'></view>
+  <view style='height:20rpx;'></view>
   <template is='lineButton' data='{{...lineButton2}}'/>
   <view style='height:3rpx;'></view>
   <template is='lineButton' data='{{...lineButton3}}'/>

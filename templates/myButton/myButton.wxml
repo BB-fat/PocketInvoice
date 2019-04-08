@@ -11,5 +11,6 @@
   <view class='lineButton-view' hover-class='lineButton-hover' bindtap='{{tapFun}}'>
     <image class='lineButton-img' src='{{iconSrc}}'></image>
     <text class='lineButton-text'>{{text}}</text>
+    <text class='lineButton-symbol'>></text>
   </view>
 </template>

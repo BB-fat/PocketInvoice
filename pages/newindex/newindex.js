@@ -41,7 +41,7 @@ Page({
       height: 60
     },
     lineButton1: {
-      iconSrc: "../../imgs/index/mineicon.png",
+      iconSrc: "../../imgs/index/pocket.png",
       text: '我的票夹',
       tapFun: "toPocket"
     },
@@ -64,7 +64,7 @@ Page({
 
   onLoad: function() {
     wx.setBackgroundColor({
-      backgroundColorTop: '#6193cd',
+      backgroundColorTop: '#6193CD',
       backgroundColorBottom: '#f2f2f2'
     })
   },

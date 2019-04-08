@@ -18,26 +18,32 @@
   font-size: 26rpx;
 }
 
-.lineButton-view{
+.lineButton-view {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 100rpx;
+  height: 88rpx;
   width: 100%;
-  background-color: white;
+  background-color: #fafdff;
 }
 
-.lineButton-img{
-  height: 70rpx;
-  width: 70rpx;
-  margin-left: 30rpx;
+.lineButton-img {
+  height: 60rpx;
+  width: 60rpx;
+  margin-left: 44rpx;
 }
 
-.lineButton-text{
+.lineButton-text {
   margin-left: 50rpx;
   font-size: 36rpx;
 }
 
-.lineButton-hover{
-  background-color: #FAFAFA;
+.lineButton-hover {
+  background-color: #fafafa;
+}
+
+.lineButton-symbol{
+  position: absolute;
+  right: 30rpx;
+  color: gray;
 }

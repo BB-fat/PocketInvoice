@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: #fafdff;
   height: 480rpx;
   width: 380rpx;
   border-radius: 16rpx 16rpx 16rpx 16rpx;
@@ -76,15 +76,24 @@
   flex-direction: row;
 }
 
-.card1-secondline-ci{
+.card1-secondline-ci {
   font-size: 30rpx;
   color: #6193cd;
   align-self: flex-end;
   margin-bottom: 19rpx;
-  }
+}
+
+.buttonView-background {
+  height: 220rpx;
+  width: 100%;
+  background-color: #fafdff;
+  border-radius: 88rpx 88rpx 0px 0px;
+}
 
 .buttonView {
-  margin-top: 60rpx;
+  position: absolute;
+  z-index: 2;
+  margin-top: 40rpx;
   display: flex;
   flex-direction: row;
   align-items: center;

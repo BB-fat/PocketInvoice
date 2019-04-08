@@ -3,7 +3,7 @@
 
 <view class='second-floor second-floor-top' style='height:{{firstFloorHeight}}%'>
   <scroll-view class='scrollView' scroll-x>
-    <view class='cardView' bindtap='toPersonal' hover-class='default-hover'>
+    <view class='cardView'>
       <view class='cardItemView'>
         <open-data class='cardItem avatar' type='userAvatarUrl'></open-data>
         <open-data class='cardItem nickName' type='userNickName'></open-data>
@@ -28,13 +28,14 @@
 </view>
 
 <view class='second-floor second-floor-bottom'>
+<view class='buttonView-background'></view>
   <view class='buttonView'>
     <template is='tabBarButton' data='{{...singleCheck}}' />
     <template is='tabBarButton' data='{{...saveInvoice}}' />
     <template is='tabBarButton' data='{{...manual}}' />
     <template is='tabBarButton' data='{{...vip}}' />
   </view>
-  <view style='height:50rpx;'></view>
+  <view style='height:20rpx;'></view>
   <template is='lineButton' data='{{...lineButton1}}'/>
   <view style='height:20rpx;'></view>
   <template is='lineButton' data='{{...lineButton2}}'/>

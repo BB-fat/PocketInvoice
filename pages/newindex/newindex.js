@@ -251,12 +251,6 @@ Page({
     })
   },
 
-  toPersonal: function() {
-    wx.navigateTo({
-      url: '../personal/personal',
-    })
-  },
-
   toEmail: function() {
     wx.navigateTo({
       url: '../email/email',

@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "templates/myButton/myButton.wxss";
+@import "templates/myInvoice/myInvoice.wxss";
 
 .mainView{
   display: flex;

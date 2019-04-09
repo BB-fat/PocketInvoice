@@ -1,0 +1,9 @@
+<!--pages/pocket/pocket.wxml-->
+<import src='../../templates/myInvoice/myInvoice.wxml' />
+
+<view class='mainView background'></view>
+<scroll-view class='mainView scroll'>
+  <view class='mainView scrollView'>
+    <template is='invoice' data='{{...test}}'/>
+  </view>
+</scroll-view>

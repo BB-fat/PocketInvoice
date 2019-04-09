@@ -1,0 +1,34 @@
+.invoice-backgroundImg{
+  position: absolute;
+  z-index: 0;
+  height: 176rpx;
+  width: 90%
+}
+
+.invoice-first-floor{
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  height: 176rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.invoice-checkbox{
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+.invoice-second-floor{
+  width: 84%;
+  height: 176rpx;
+  position: absolute;
+  z-index: 2;
+  background-color: white
+}
+
+.invoice-fp_zl{
+}

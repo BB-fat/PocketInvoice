@@ -1,0 +1,10 @@
+<template name='invoice'>
+  <view class='invoice-second-floor'>
+<text class='invoice-fp_zl'>{{invoice.fp_zl}}</text>
+  </view>
+  <view class='invoice-first-floor'>
+    <image wx:if='{{!checked}}' src='../../imgs/pocket/invoice_button_checkbox_false@2x.png' class='invoice-checkbox'></image>
+    <image wx:else class='invoice-checkbox' src='../../imgs/pocket/invoice_button_checkbox_true@2x.png'></image>
+  </view>
+  <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg'></image>
+</template>

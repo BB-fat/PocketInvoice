@@ -41,22 +41,22 @@ Page({
       height: 60
     },
     lineButton1: {
-      iconSrc: "../../imgs/index/pocket.png",
+      iconSrc: "../../imgs/index/list_icon_folder_default@2x.png",
       text: '我的票夹',
       tapFun: "toPocket"
     },
     lineButton2: {
-      iconSrc: '../../imgs/index/email.png',
+      iconSrc: '../../imgs/index/list_icon_email_default@2x.png',
       text: '邮箱设置',
       tapFun: 'toEmail'
     },
     lineButton3: {
-      iconSrc: '../../imgs/index/help.png',
+      iconSrc: '../../imgs/index/list_icon_faq_default@2x.png',
       text: '使用帮助',
       tapFun: 'toHelp'
     },
     lineButton4: {
-      iconSrc: '../../imgs/index/about.png',
+      iconSrc: '../../imgs/index/list_icon_information_default@2x.png',
       text: '关于我们',
       tapFun: 'toAbout'
     }
@@ -247,7 +247,7 @@ Page({
   // 跳转至发票夹
   toPocket: function() {
     wx.navigateTo({
-      url: '../mine/mine',
+      url: '../pocket/pocket',
     })
   },
 

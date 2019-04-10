@@ -1,9 +1,21 @@
 <!--pages/pocket/pocket.wxml-->
 <import src='../../templates/myInvoice/myInvoice.wxml' />
+<import src='../../templates/myButton/myButton.wxml' />
 
-<view class='mainView background'></view>
-<scroll-view class='mainView scroll'>
-  <view class='mainView scrollView'>
-    <template is='invoice' data='{{...test}}'/>
+<view class='mainView background'>
+  <view class="round-view"></view>
+  <scroll-view class='scroll' scroll-y>
+    <block wx:for="{{testInvoices}}">
+      <view wx:if='{{index!=0}}' style="height:200rpx;"></view>
+      <view class="scroll-view">
+        <template is='invoice' data='{{...item,textLeft,textWidth}}' />
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="buttonView">
+  <view class="buttonView2">
+    <template is='coolButton' data='{{...btn_shaixuan}}' />
+    <template is='coolButton' data='{{...btn_piliang}}' />
   </view>
-</scroll-view>
+</view>

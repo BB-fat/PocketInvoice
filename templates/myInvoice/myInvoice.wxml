@@ -1,10 +1,31 @@
 <template name='invoice'>
-  <view class='invoice-second-floor'>
-<text class='invoice-fp_zl'>{{invoice.fp_zl}}</text>
+  <view class="invoice-view">
+    <view class="invoice-second-floor" style="width:{{textWidth}}rpx;left: {{textLeft}}rpx;">
+      <view class="invoice-midline"></view>
+      <text class='invoice-fp_zl'>{{invoice.fp_zl}}</text>
+      <image src='../../imgs/pocket/invoice_tag_corner.png' class="invoice-tagcorner"></image>
+      <image wx:if='{{invoiceType=="dian"}}' src='../../imgs/pocket/invoice_icon_elec@2x.png' class="invoice-type">
+      </image>
+      <image wx:elif='{{invoiceType=="pu"}}' src='../../imgs/pocket/invoice_icon_nor@2x.png' class="invoice-type">
+      </image>
+      <image wx:elif='{{invoiceType=="zhuan"}}' src='../../imgs/pocket/invoice_icon_pro@2x.png' class="invoice-type">
+      </image>
+      <view class="invoice-kprq-view">
+        <text class="invoice-data-title">开票日期：</text>
+        <text>{{invoice.kp_rq}}</text>
+      </view>
+      <view class="invoice-kpje-view">
+        <text class="invoice-data-title">开票金额：</text>
+        <text style="color:#D3922B">{{invoice.kp_je}}</text>
+      </view>
+    </view>
+    <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg2'
+      style="width:{{textWidth}}rpx;left: {{textLeft}}rpx;"></image>
+    <view class='invoice-first-floor'>
+      <image wx:if='{{!checked}}' src='../../imgs/pocket/invoice_button_checkbox_false@2x.png' class='invoice-checkbox'>
+      </image>
+      <image wx:else class='invoice-checkbox' src='../../imgs/pocket/invoice_button_checkbox_true@2x.png'></image>
+    </view>
+    <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg'></image>
   </view>
-  <view class='invoice-first-floor'>
-    <image wx:if='{{!checked}}' src='../../imgs/pocket/invoice_button_checkbox_false@2x.png' class='invoice-checkbox'></image>
-    <image wx:else class='invoice-checkbox' src='../../imgs/pocket/invoice_button_checkbox_true@2x.png'></image>
-  </view>
-  <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg'></image>
 </template>

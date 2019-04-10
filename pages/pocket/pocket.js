@@ -12,10 +12,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    btn_shaixuan:{
+      tapFun:'outPiliang',
+      text:"发票筛选",
+      color:"#E19C2E",
+      width:320,
+    },
+    btn_piliang:{
+      tapFun:'onPiliang',
+      text:"批量管理",
+      color:"#6919b4",
+      width:320,
+    },
+    textLeft:0,
+    textWidth:710,
     test:{
+      invoiceType:'zhuan',
       checked:false,
       invoice:{
-        fp_zl:'增值税专用发票'
+        fp_zl:'增值税专用发票',
+        kp_rq:"2019.05.24",
+        kp_je:"¥100.00"
       }
     },
     invoices: [], //全部发票信息
@@ -28,6 +45,35 @@ Page({
     checked: [], //选框列表
     chooseall: false, //全选开关
   },
+
+  onPiliang:function(){
+    var that=this
+    if(that.data.textWidth<=610){return}
+    var dong=setInterval(function(){
+      that.setData({
+        textLeft:that.data.textLeft+3.5,
+        textWidth:that.data.textWidth-3.5,
+      })
+      if(that.data.textWidth<=610){
+        clearInterval(dong)
+      }
+    },1)
+  },
+
+  outPiliang:function(){
+    var that=this
+    if(that.data.textWidth>=710){return}
+    var dong=setInterval(function(){
+      that.setData({
+        textLeft:that.data.textLeft-3.5,
+        textWidth:that.data.textWidth+3.5,
+      })
+      if(that.data.textWidth>=710){
+        clearInterval(dong)
+      }
+    },1)
+  },
+
   //筛选按钮
   shaixuan: function () {
     //发票夹是空的或筛选结果为空时不允许切换筛选状态
@@ -347,7 +393,13 @@ Page({
   },
 
   onLoad: function () {
+    var temp=[]
+    for(var i=0;i<10;i++){
+      temp.push({...this.data.test})
+      // temp[i].top=50+226*i
+    }
     this.setData({
+      testInvoices:temp,
       windowHeight: app.globalData.windowHeight
     })
     wx.showLoading({

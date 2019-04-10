@@ -14,3 +14,10 @@
     <text class='lineButton-symbol'>></text>
   </view>
 </template>
+
+<!-- 发票价功能按钮 -->
+<template name='coolButton'>
+  <view bindtap='{{tapFun}}' class="coolButton-view" style="background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text">{{text}}</text>
+  </view>
+</template>

@@ -47,3 +47,14 @@
   right: 30rpx;
   color: gray;
 }
+
+.coolButton-view{
+  height: 92rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: white;
+  border-radius: 46rpx;
+}

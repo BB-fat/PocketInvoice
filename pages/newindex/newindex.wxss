@@ -1,4 +1,7 @@
 /* pages/newindex/newindex.wxss */
+@import "../../templates/myButton/myButton.wxss";
+
+
 
 .second-floor {
   display: flex;

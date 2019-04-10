@@ -1,4 +1,7 @@
 /* pages/pocket/pocket.wxss */
+@import "../../templates/myInvoice/myInvoice.wxss";
+@import "../../templates/myButton/myButton.wxss";
+
 
 .background {
   position: absolute;
@@ -6,16 +9,40 @@
   background-color: #6193cd;
 }
 
-.scroll {
-  position: absolute;
-  z-index: 1;
-  background-color: #f0f3f5;
+.round-view{
+  width: 100%;
+  height: 5%;
   border-radius: 60rpx 60rpx 0 0;
+  background-color: #f0f3f5;
 }
 
-.scrollView{
-    border-radius: 60rpx 60rpx 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.scroll {
+  height: 95%;
+  width: 100%;
+  background-color: #f0f3f5;
+}
+
+.scroll-view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonView{
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  bottom: 30rpx;
+  height: 92rpx;
+}
+
+.buttonView2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%
 }

@@ -1,9 +1,9 @@
 <template name='invoice'>
   <view class="invoice-view">
-    <view class="invoice-second-floor" style="width:{{textWidth}}rpx;left: {{textLeft}}rpx;">
+    <view class="invoice-second-floor" style="width:{{invoiceWidth}}rpx;left: {{710-invoiceWidth}}rpx;">
       <view class="invoice-midline"></view>
       <text class='invoice-fp_zl'>{{invoice.fp_zl}}</text>
-      <image src='../../imgs/pocket/invoice_tag_corner.png' class="invoice-tagcorner"></image>
+      <image wx:if='{{state==1}}' src='../../imgs/pocket/invoice_tag_corner.png' class="invoice-tagcorner"></image>
       <image wx:if='{{invoiceType=="dian"}}' src='../../imgs/pocket/invoice_icon_elec@2x.png' class="invoice-type">
       </image>
       <image wx:elif='{{invoiceType=="pu"}}' src='../../imgs/pocket/invoice_icon_nor@2x.png' class="invoice-type">
@@ -20,7 +20,7 @@
       </view>
     </view>
     <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg2'
-      style="width:{{textWidth}}rpx;left: {{textLeft}}rpx;"></image>
+      style="width:{{invoiceWidth}}rpx;left: {{710-invoiceWidth}}rpx;"></image>
     <view class='invoice-first-floor'>
       <image wx:if='{{!checked}}' src='../../imgs/pocket/invoice_button_checkbox_false@2x.png' class='invoice-checkbox'>
       </image>

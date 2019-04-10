@@ -8,7 +8,7 @@
     <block wx:for="{{testInvoices}}">
       <view wx:if='{{index!=0}}' style="height:200rpx;"></view>
       <view class="scroll-view">
-        <template is='invoice' data='{{...item,textLeft,textWidth}}' />
+        <template is='invoice' data='{{...item,invoiceWidth}}' />
       </view>
     </block>
   </scroll-view>

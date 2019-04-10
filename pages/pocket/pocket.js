@@ -24,8 +24,7 @@ Page({
       color:"#6919b4",
       width:320,
     },
-    textLeft:0,
-    textWidth:710,
+    invoiceWidth:710,
     test:{
       invoiceType:'zhuan',
       checked:false,
@@ -48,28 +47,26 @@ Page({
 
   onPiliang:function(){
     var that=this
-    if(that.data.textWidth<=610){return}
-    var dong=setInterval(function(){
+    if(that.data.invoiceWidth<=610){return}
+    var move=setInterval(function(){
       that.setData({
-        textLeft:that.data.textLeft+3.5,
-        textWidth:that.data.textWidth-3.5,
+        invoiceWidth:that.data.invoiceWidth-3.5,
       })
-      if(that.data.textWidth<=610){
-        clearInterval(dong)
+      if(that.data.invoiceWidth<=610){
+        clearInterval(move)
       }
     },1)
   },
 
   outPiliang:function(){
     var that=this
-    if(that.data.textWidth>=710){return}
-    var dong=setInterval(function(){
+    if(that.data.invoiceWidth>=710){return}
+    var move=setInterval(function(){
       that.setData({
-        textLeft:that.data.textLeft-3.5,
-        textWidth:that.data.textWidth+3.5,
+        invoiceWidth:that.data.invoiceWidth+3.5,
       })
-      if(that.data.textWidth>=710){
-        clearInterval(dong)
+      if(that.data.invoiceWidth>=710){
+        clearInterval(move)
       }
     },1)
   },
@@ -393,13 +390,12 @@ Page({
   },
 
   onLoad: function () {
-    var temp=[]
-    for(var i=0;i<10;i++){
-      temp.push({...this.data.test})
-      // temp[i].top=50+226*i
-    }
+    // var temp=[]
+    // for(var i=0;i<10;i++){
+    //   temp.push({...this.data.test})
+    // }
     this.setData({
-      testInvoices:temp,
+      // testInvoices:temp,
       windowHeight: app.globalData.windowHeight
     })
     wx.showLoading({
@@ -437,6 +433,13 @@ Page({
         if (data['pocket'] == []) {
           return
         } else {
+          var pocket=[]
+          for(var i=0;i<data['pocket'].length;i++){
+            pocket.push({
+              invoice:data['pocket'][i],
+              
+            })
+          }
           that.setData({
             invoices: data['pocket'],
             pocket: data['pocket'],

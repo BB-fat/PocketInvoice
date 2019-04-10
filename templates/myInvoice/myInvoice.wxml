@@ -1,22 +1,22 @@
 <template name='invoice'>
-  <view class="invoice-view">
+  <view class="invoice-view" bindtap="{{tapFun}}" data-id="{{index}}">
     <view class="invoice-second-floor" style="width:{{invoiceWidth}}rpx;left: {{710-invoiceWidth}}rpx;">
       <view class="invoice-midline"></view>
-      <text class='invoice-fp_zl'>{{invoice.fp_zl}}</text>
+      <text class='invoice-fp_zl'>{{fp_zl}}</text>
       <image wx:if='{{state==1}}' src='../../imgs/pocket/invoice_tag_corner.png' class="invoice-tagcorner"></image>
-      <image wx:if='{{invoiceType=="dian"}}' src='../../imgs/pocket/invoice_icon_elec@2x.png' class="invoice-type">
+      <image wx:if='{{fp_qz=="10"}}' src='../../imgs/pocket/invoice_icon_elec@2x.png' class="invoice-type">
       </image>
-      <image wx:elif='{{invoiceType=="pu"}}' src='../../imgs/pocket/invoice_icon_nor@2x.png' class="invoice-type">
+      <image wx:elif='{{fp_qz=="04"}}' src='../../imgs/pocket/invoice_icon_nor@2x.png' class="invoice-type">
       </image>
-      <image wx:elif='{{invoiceType=="zhuan"}}' src='../../imgs/pocket/invoice_icon_pro@2x.png' class="invoice-type">
+      <image wx:elif='{{fp_qz=="01"}}' src='../../imgs/pocket/invoice_icon_pro@2x.png' class="invoice-type">
       </image>
       <view class="invoice-kprq-view">
         <text class="invoice-data-title">开票日期：</text>
-        <text>{{invoice.kp_rq}}</text>
+        <text>{{kp_rq}}</text>
       </view>
       <view class="invoice-kpje-view">
         <text class="invoice-data-title">开票金额：</text>
-        <text style="color:#D3922B">{{invoice.kp_je}}</text>
+        <text style="color:#D3922B">{{kp_je}}</text>
       </view>
     </view>
     <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg2'

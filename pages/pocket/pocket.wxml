@@ -5,10 +5,10 @@
 <view class='mainView background'>
   <view class="round-view"></view>
   <scroll-view class='scroll' scroll-y>
-    <block wx:for="{{testInvoices}}">
+    <block wx:for="{{pocket}}">
       <view wx:if='{{index!=0}}' style="height:200rpx;"></view>
       <view class="scroll-view">
-        <template is='invoice' data='{{...item,invoiceWidth}}' />
+        <template is='invoice' data='{{...item,checked:checked[index],invoiceWidth,tapFun:fun_one,index}}' />
       </view>
     </block>
   </scroll-view>

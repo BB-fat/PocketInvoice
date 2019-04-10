@@ -12,28 +12,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    btn_shaixuan:{
-      tapFun:'outPiliang',
-      text:"发票筛选",
-      color:"#E19C2E",
-      width:320,
+    btn_shaixuan: {
+      tapFun: 'offPiliang',
+      text: "取消批量",
+      color: "#E19C2E",
+      width: 320,
     },
-    btn_piliang:{
-      tapFun:'onPiliang',
-      text:"批量管理",
-      color:"#6919b4",
-      width:320,
+    btn_piliang: {
+      tapFun: 'onPiliang',
+      text: "批量管理",
+      color: "#6919b4",
+      width: 320,
     },
-    invoiceWidth:710,
-    test:{
-      invoiceType:'zhuan',
-      checked:false,
-      invoice:{
-        fp_zl:'增值税专用发票',
-        kp_rq:"2019.05.24",
-        kp_je:"¥100.00"
-      }
-    },
+    invoiceWidth: 710,
     invoices: [], //全部发票信息
     pocket: [], //发票夹
     date: 0, //筛选月份
@@ -45,30 +36,45 @@ Page({
     chooseall: false, //全选开关
   },
 
-  onPiliang:function(){
-    var that=this
-    if(that.data.invoiceWidth<=610){return}
-    var move=setInterval(function(){
+  onPiliang: function () {
+    var that = this
+    if (that.data.invoiceWidth <= 610) { return }
+    this.setData({
+      piliang: !this.data.piliang,
+      fun_one: 'changecheckbox',
+    })
+    var move = setInterval(function () {
       that.setData({
-        invoiceWidth:that.data.invoiceWidth-3.5,
+        invoiceWidth: that.data.invoiceWidth - 3.5,
       })
-      if(that.data.invoiceWidth<=610){
+      if (that.data.invoiceWidth <= 610) {
         clearInterval(move)
       }
-    },1)
+    }, 1)
   },
 
-  outPiliang:function(){
-    var that=this
-    if(that.data.invoiceWidth>=710){return}
-    var move=setInterval(function(){
+  offPiliang: function () {
+    var that = this
+    if (that.data.invoiceWidth >= 710) { return }
+    var temp = this.data.checked
+    for (var i = 0; i < temp.length; i++) {
+      temp[i] = false
+    }
+    //关闭批量
+    this.setData({
+      piliang: !this.data.piliang,
+      fun_one: 'one',
+      checked: temp,
+      chooseall: false,
+    })
+    var move = setInterval(function () {
       that.setData({
-        invoiceWidth:that.data.invoiceWidth+3.5,
+        invoiceWidth: that.data.invoiceWidth + 3.5,
       })
-      if(that.data.invoiceWidth>=710){
+      if (that.data.invoiceWidth >= 710) {
         clearInterval(move)
       }
-    },1)
+    }, 1)
   },
 
   //筛选按钮
@@ -390,12 +396,7 @@ Page({
   },
 
   onLoad: function () {
-    // var temp=[]
-    // for(var i=0;i<10;i++){
-    //   temp.push({...this.data.test})
-    // }
     this.setData({
-      // testInvoices:temp,
       windowHeight: app.globalData.windowHeight
     })
     wx.showLoading({
@@ -433,13 +434,6 @@ Page({
         if (data['pocket'] == []) {
           return
         } else {
-          var pocket=[]
-          for(var i=0;i<data['pocket'].length;i++){
-            pocket.push({
-              invoice:data['pocket'][i],
-              
-            })
-          }
           that.setData({
             invoices: data['pocket'],
             pocket: data['pocket'],

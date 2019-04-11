@@ -32,17 +32,36 @@
 .buttonView{
   position: absolute;
   z-index: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   width: 100%;
   bottom: 30rpx;
   height: 92rpx;
 }
 
-.buttonView2{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%
+.btn-shaixuan{
+  position: absolute;
+  left:30rpx;
+}
+
+.btn-piliang{
+  position: absolute;
+  z-index: 4;
+  right: 30rpx;
+}
+
+.btn-cancle{
+  position: absolute;
+  z-index: 3;
+  right: 30rpx;
+}
+
+.btn-delete{
+  position: absolute;
+  z-index: 2;
+  right: 30rpx;
+}
+
+.btn-tongji{
+  position: absolute;
+  z-index: 1;
+  right: 30rpx;
 }

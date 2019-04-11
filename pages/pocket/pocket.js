@@ -13,16 +13,39 @@ Page({
    */
   data: {
     btn_shaixuan: {
-      tapFun: 'offPiliang',
-      text: "取消批量",
+      tapFun: '',
+      text: "发票筛选",
       color: "#E19C2E",
-      width: 320,
+      width:320,
+      mode:"mid"
     },
     btn_piliang: {
       tapFun: 'onPiliang',
       text: "批量管理",
       color: "#6919b4",
-      width: 320,
+      width:320,
+      mode:"mid"
+    },
+    btn_cancel:{
+      tapFun: 'offPiliang',
+      text: "取消",
+      color: "#7250c8",
+      width:320,
+      mode:"left"
+    },
+    btn_delete:{
+      tapFun: 'deleteall',
+      text: "删除",
+      color: "#e65454",
+      width:320,
+      mode:"left"
+    },
+    btn_tongji:{
+      tapFun: 'excel',
+      text: "统计",
+      color: "#c79841",
+      width:320,
+      mode:"left"
     },
     invoiceWidth: 710,
     invoices: [], //全部发票信息
@@ -38,43 +61,107 @@ Page({
 
   onPiliang: function () {
     var that = this
-    if (that.data.invoiceWidth <= 610) { return }
+    this.data.btn_piliang.tapFun="checkall"
+    this.data.btn_piliang.text="一键查验"
     this.setData({
       piliang: !this.data.piliang,
       fun_one: 'changecheckbox',
+      btn_piliang:this.data.btn_piliang
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth - 3.5,
+        invoiceWidth: that.data.invoiceWidth - 7.5,
       })
       if (that.data.invoiceWidth <= 610) {
         clearInterval(move)
       }
     }, 1)
+    var btn_cancel=setInterval(function(){
+      var data_cancel=that.data.btn_cancel
+      data_cancel.width=data_cancel.width+15
+      that.setData({
+        btn_cancel:data_cancel
+      })
+      if(that.data.btn_cancel.width>=453){
+        clearInterval(btn_cancel)
+      }
+    },1)
+    var btn_delete=setInterval(function(){
+      var data_delete=that.data.btn_delete
+      data_delete.width=data_delete.width+20
+      that.setData({
+        btn_delete:data_delete
+      })
+      if(that.data.btn_delete.width>=565){
+        clearInterval(btn_delete)
+      }
+    },1)
+    var btn_tongji=setInterval(function(){
+      var data_tongji=that.data.btn_tongji
+      data_tongji.width=data_tongji.width+25
+      that.setData({
+        btn_tongji:data_tongji
+      })
+      if(that.data.btn_tongji.width>=680){
+        clearInterval(btn_tongji)
+      }
+    },1)
   },
 
   offPiliang: function () {
     var that = this
-    if (that.data.invoiceWidth >= 710) { return }
     var temp = this.data.checked
     for (var i = 0; i < temp.length; i++) {
       temp[i] = false
     }
+    this.data.btn_piliang.tapFun="onPiliang"
+    this.data.btn_piliang.text="批量管理"
     //关闭批量
     this.setData({
       piliang: !this.data.piliang,
       fun_one: 'one',
       checked: temp,
       chooseall: false,
+      btn_piliang:this.data.btn_piliang
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth + 3.5,
+        invoiceWidth: that.data.invoiceWidth + 7.5,
       })
       if (that.data.invoiceWidth >= 710) {
         clearInterval(move)
       }
     }, 1)
+    var btn_cancel=setInterval(function(){
+      var data_cancel=that.data.btn_cancel
+      data_cancel.width=data_cancel.width-15
+      that.setData({
+        btn_cancel:data_cancel
+      })
+      if(that.data.btn_cancel.width<=320){
+        clearInterval(btn_cancel)
+      }
+    },1)
+    var btn_delete=setInterval(function(){
+      var data_delete=that.data.btn_delete
+      data_delete.width=data_delete.width-20
+      that.setData({
+        btn_delete:data_delete
+      })
+      if(that.data.btn_delete.width<=320){
+        clearInterval(btn_delete)
+      }
+    },1)
+    var btn_tongji=setInterval(function(){
+      var data_tongji=that.data.btn_tongji
+      data_tongji.width=data_tongji.width-25
+      that.setData({
+        btn_tongji:data_tongji
+      })
+      if(that.data.btn_tongji.width<=320){
+        clearInterval(btn_tongji)
+      }
+    },1)
   },
 
   //筛选按钮
@@ -310,9 +397,6 @@ Page({
             icon: 'success',
           })
           that.setData({
-            piliang: false,
-            scroll_height: that.data.scroll_height + that.data.windowHeight * 0.08,
-            fun_one: 'one',
             checked: temp //还原选择状态列表
           })
         }
@@ -396,9 +480,10 @@ Page({
   },
 
   onLoad: function () {
-    this.setData({
-      windowHeight: app.globalData.windowHeight
+    var t_data = JSON.stringify({
+      "cmd": 111,
     })
+    sendmsg(t_data)
     wx.showLoading({
       title: '加载中',
     })
@@ -413,17 +498,8 @@ Page({
     this.setData({
       date: 0,
       zl: 0,
-      shaixuan: false,
-      piliang: false,
-      scroll_height: this.data.windowHeight * 0.92,
-      fun_one: 'one',
       checked: [],
-      chooseall: false,
     })
-    var t_data = JSON.stringify({
-      "cmd": 111,
-    })
-    sendmsg(t_data)
     wx.onSocketMessage(function (res) {
       console.log('recieve:' + res.data)
       var data = JSON.parse(res.data)
@@ -461,12 +537,8 @@ Page({
         for (var i = 0; i < that.data.checked.length; i++) {
           that.data.checked[i] = false
         }
-        //还原页面状态
         that.setData({
           checked: that.data.checked,
-          piliang: false,
-          scroll_height: that.data.scroll_height + that.data.windowHeight * 0.08,
-          fun_one: 'one',
         })
         wx.hideLoading()
         wx.showToast({
@@ -481,15 +553,9 @@ Page({
           title: '完成',
           icon: 'success',
         })
-        //初始化各种状态
+        //初始化选框列表
         that.setData({
-          date: 0,
-          shaixuan: false,
-          piliang: false,
-          scroll_height: that.data.windowHeight * 0.92,
-          fun_one: 'one',
           checked: [],
-          chooseall: false,
         })
       }
       //在此添加后续指令

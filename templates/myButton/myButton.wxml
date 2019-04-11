@@ -17,7 +17,16 @@
 
 <!-- 发票价功能按钮 -->
 <template name='coolButton'>
-  <view bindtap='{{tapFun}}' class="coolButton-view" style="background-color:{{color}};width:{{width}}rpx">
+  <view wx:if='{{mode=="mid"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="coolButton-view"
+    style="align-items: center;background-color:{{color}};width:{{width}}rpx">
     <text class="coolButton-text">{{text}}</text>
+  </view>
+  <view wx:elif='{{mode=="left"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="coolButton-view"
+    style="align-items: flex-start;background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text" style="margin-left: 35rpx;">{{text}}</text>
+  </view>
+  <view wx:elif='{{mode=="right"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="coolButton-view"
+    style="align-items: flex-end;background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text" style="margin-right:35rpx;">{{text}}</text>
   </view>
 </template>

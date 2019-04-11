@@ -14,8 +14,24 @@
   </scroll-view>
 </view>
 <view class="buttonView">
-  <view class="buttonView2">
-    <template is='coolButton' data='{{...btn_shaixuan}}' />
-    <template is='coolButton' data='{{...btn_piliang}}' />
+  <view wx:if='{{!piliang}}' >
+    <view class="btn-shaixuan">
+      <template is='coolButton' data='{{...btn_shaixuan}}' />
+    </view>
+  </view>
+  <!-- 批量模块 -->
+  <view wx:if='{{!shaixuan}}'>
+    <view class="btn-piliang">
+      <template is='coolButton' data='{{...btn_piliang}}' />
+    </view>
+    <view class="btn-cancle">
+      <template is="coolButton" data='{{...btn_cancel}}' />
+    </view>
+    <view class="btn-delete">
+      <template is="coolButton" data='{{...btn_delete}}'></template>
+    </view>
+    <view class="btn-tongji">
+      <template is="coolButton" data='{{...btn_tongji}}'></template>
+    </view>
   </view>
 </view>

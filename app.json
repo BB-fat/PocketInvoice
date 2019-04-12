@@ -19,6 +19,5 @@
     "navigationBarTitleText": "口袋发票",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f0f3f5"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

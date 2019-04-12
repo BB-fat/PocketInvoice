@@ -13,39 +13,39 @@ Page({
    */
   data: {
     btn_shaixuan: {
-      tapFun: '',
+      tapFun: 'onShaixuan',
       text: "发票筛选",
       color: "#E19C2E",
-      width:320,
-      mode:"mid"
+      width: 320,
+      mode: "mid"
     },
     btn_piliang: {
       tapFun: 'onPiliang',
       text: "批量管理",
       color: "#6919b4",
-      width:320,
-      mode:"mid"
+      width: 320,
+      mode: "mid"
     },
-    btn_cancel:{
+    btn_cancel: {
       tapFun: 'offPiliang',
       text: "取消",
       color: "#7250c8",
-      width:320,
-      mode:"left"
+      width: 320,
+      mode: "left"
     },
-    btn_delete:{
+    btn_delete: {
       tapFun: 'deleteall',
       text: "删除",
       color: "#e65454",
-      width:320,
-      mode:"left"
+      width: 320,
+      mode: "left"
     },
-    btn_tongji:{
+    btn_tongji: {
       tapFun: 'excel',
       text: "统计",
       color: "#c79841",
-      width:320,
-      mode:"left"
+      width: 320,
+      mode: "left"
     },
     invoiceWidth: 710,
     invoices: [], //全部发票信息
@@ -59,53 +59,125 @@ Page({
     chooseall: false, //全选开关
   },
 
+  onShaixuan: function () {
+    //发票夹是空的或筛选结果为空时不允许切换筛选状态
+    if (this.data.pocket == '') {
+      return
+    }
+    this.data.btn_shaixuan.text = '发票种类'
+    this.data.btn_shaixuan.tapFun = 'invoiceType'
+    this.setData({
+      shaixuan: true,
+      btn_shaixuan: this.data.btn_shaixuan
+    })
+  },
+
+  invoiceType: function () {
+    var that = this
+    wx.showActionSheet({
+      itemList: ["增值税电子普通发票", "增值税普通发票", "增值税专用发票"],
+      success(res) {
+        var tempzl = 0
+        if (res.tapIndex == 0) {
+          tempzl = "10"
+        }
+        else if (res.tapIndex == 0) {
+          tempzl = "04"
+        }
+        else {
+          tempzl = "01"
+        }
+        //判断日期筛选是否启动
+        if (that.data.date != 0) {
+          var datearr = that.data.date.split('-')
+        }
+        var temp = []
+        //增值税电子普通发票
+        if (that.data.zl == "10") {
+          for (var i = 0; i < that.data.invoices.length; i++) {
+            if (that.data.invoices[i]['fp_qz'] == '10') {
+              if (that.data.date == 0 || that.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && that.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+                temp.push(that.data.invoices[i])
+              }
+            }
+          }
+        }
+        //增值税普通发票
+        else if (that.data.zl == "04") {
+          var temp = []
+          for (var i = 0; i < that.data.invoices.length; i++) {
+            if (that.data.invoices[i]['fp_qz'] == '04') {
+              if (that.data.date == 0 || that.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && that.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+                temp.push(that.data.invoices[i])
+              }
+            }
+          }
+        }
+        //增值税专用发票
+        else if (that.data.zl == "01") {
+          var temp = []
+          for (var i = 0; i < that.data.invoices.length; i++) {
+            if (that.data.invoices[i]['fp_qz'] == '01') {
+              if (that.data.date == 0 || that.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && that.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
+                temp.push(that.data.invoices[i])
+              }
+            }
+          }
+        }
+        that.setData({
+          pocket: temp
+        })
+      }
+    })
+  },
+
   onPiliang: function () {
     var that = this
-    this.data.btn_piliang.tapFun="checkall"
-    this.data.btn_piliang.text="一键查验"
+    this.data.btn_piliang.tapFun = "checkall"
+    this.data.btn_piliang.text = "一键查验"
     this.setData({
       piliang: !this.data.piliang,
       fun_one: 'changecheckbox',
-      btn_piliang:this.data.btn_piliang
+      btn_piliang: this.data.btn_piliang
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth - 7.5,
+        invoiceWidth: that.data.invoiceWidth - 9,
       })
       if (that.data.invoiceWidth <= 610) {
         clearInterval(move)
       }
-    }, 1)
-    var btn_cancel=setInterval(function(){
-      var data_cancel=that.data.btn_cancel
-      data_cancel.width=data_cancel.width+15
+    }, 17)
+    var btn_cancel = setInterval(function () {
+      var data_cancel = that.data.btn_cancel
+      data_cancel.width = data_cancel.width + 20
       that.setData({
-        btn_cancel:data_cancel
+        btn_cancel: data_cancel
       })
-      if(that.data.btn_cancel.width>=453){
+      if (that.data.btn_cancel.width >= 453) {
         clearInterval(btn_cancel)
       }
-    },1)
-    var btn_delete=setInterval(function(){
-      var data_delete=that.data.btn_delete
-      data_delete.width=data_delete.width+20
+    }, 17)
+    var btn_delete = setInterval(function () {
+      var data_delete = that.data.btn_delete
+      data_delete.width = data_delete.width + 25
       that.setData({
-        btn_delete:data_delete
+        btn_delete: data_delete
       })
-      if(that.data.btn_delete.width>=565){
+      if (that.data.btn_delete.width >= 565) {
         clearInterval(btn_delete)
       }
-    },1)
-    var btn_tongji=setInterval(function(){
-      var data_tongji=that.data.btn_tongji
-      data_tongji.width=data_tongji.width+25
+    }, 17)
+    var btn_tongji = setInterval(function () {
+      var data_tongji = that.data.btn_tongji
+      data_tongji.width = data_tongji.width + 30
       that.setData({
-        btn_tongji:data_tongji
+        btn_tongji: data_tongji
       })
-      if(that.data.btn_tongji.width>=680){
+      if (that.data.btn_tongji.width >= 680) {
         clearInterval(btn_tongji)
       }
-    },1)
+    }, 17)
   },
 
   offPiliang: function () {
@@ -114,54 +186,54 @@ Page({
     for (var i = 0; i < temp.length; i++) {
       temp[i] = false
     }
-    this.data.btn_piliang.tapFun="onPiliang"
-    this.data.btn_piliang.text="批量管理"
+    this.data.btn_piliang.tapFun = "onPiliang"
+    this.data.btn_piliang.text = "批量管理"
     //关闭批量
     this.setData({
       piliang: !this.data.piliang,
       fun_one: 'one',
       checked: temp,
       chooseall: false,
-      btn_piliang:this.data.btn_piliang
+      btn_piliang: this.data.btn_piliang
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth + 7.5,
+        invoiceWidth: that.data.invoiceWidth + 9,
       })
       if (that.data.invoiceWidth >= 710) {
         clearInterval(move)
       }
-    }, 1)
-    var btn_cancel=setInterval(function(){
-      var data_cancel=that.data.btn_cancel
-      data_cancel.width=data_cancel.width-15
+    }, 17)
+    var btn_cancel = setInterval(function () {
+      var data_cancel = that.data.btn_cancel
+      data_cancel.width = data_cancel.width - 20
       that.setData({
-        btn_cancel:data_cancel
+        btn_cancel: data_cancel
       })
-      if(that.data.btn_cancel.width<=320){
+      if (that.data.btn_cancel.width <= 320) {
         clearInterval(btn_cancel)
       }
-    },1)
-    var btn_delete=setInterval(function(){
-      var data_delete=that.data.btn_delete
-      data_delete.width=data_delete.width-20
+    }, 17)
+    var btn_delete = setInterval(function () {
+      var data_delete = that.data.btn_delete
+      data_delete.width = data_delete.width - 25
       that.setData({
-        btn_delete:data_delete
+        btn_delete: data_delete
       })
-      if(that.data.btn_delete.width<=320){
+      if (that.data.btn_delete.width <= 320) {
         clearInterval(btn_delete)
       }
-    },1)
-    var btn_tongji=setInterval(function(){
-      var data_tongji=that.data.btn_tongji
-      data_tongji.width=data_tongji.width-25
+    }, 17)
+    var btn_tongji = setInterval(function () {
+      var data_tongji = that.data.btn_tongji
+      data_tongji.width = data_tongji.width - 30
       that.setData({
-        btn_tongji:data_tongji
+        btn_tongji: data_tongji
       })
-      if(that.data.btn_tongji.width<=320){
+      if (that.data.btn_tongji.width <= 320) {
         clearInterval(btn_tongji)
       }
-    },1)
+    }, 17)
   },
 
   //筛选按钮
@@ -181,36 +253,6 @@ Page({
       })
     }
   },
-  //批量按钮
-  piliang: function () {
-    //发票夹为空时不能打开批量
-    if (this.data.pocket == '') {
-      return
-    }
-    if (this.data.piliang) {
-      var temp = this.data.checked
-      for (var i = 0; i < temp.length; i++) {
-        temp[i] = false
-      }
-      //关闭批量
-      this.setData({
-        piliang: !this.data.piliang,
-        fun_one: 'one',
-        checked: temp,
-        scroll_height: this.data.scroll_height + this.data.windowHeight * 0.08,
-        chooseall: false,
-      })
-    }
-    //打开批量 
-    else {
-      this.setData({
-        piliang: !this.data.piliang,
-        fun_one: 'changecheckbox',
-        scroll_height: this.data.scroll_height - this.data.windowHeight * 0.08,
-      })
-    }
-  },
-
   //恢复显示全部
   all: function () {
     this.setData({

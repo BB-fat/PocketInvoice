@@ -39,7 +39,14 @@
 
 .btn-shaixuan{
   position: absolute;
+  z-index: 3;
   left:30rpx;
+}
+
+.btn-zhuangtai{
+  position: absolute;
+  z-index: 2;
+  left: 30rpx;
 }
 
 .btn-piliang{
@@ -48,7 +55,7 @@
   right: 30rpx;
 }
 
-.btn-cancle{
+.btn-chooseall{
   position: absolute;
   z-index: 3;
   right: 30rpx;

@@ -15,9 +15,16 @@ Page({
     btn_shaixuan: {
       tapFun: 'onShaixuan',
       text: "发票筛选",
-      color: "#E19C2E",
+      color: "#d3922b",
       width: 320,
       mode: "mid"
+    },
+    btn_zhuangtai: {
+      tapFun: 'chooseState',
+      text: "查验状态",
+      color: "#E19C2E",
+      width: 320,
+      mode: "right"
     },
     btn_piliang: {
       tapFun: 'onPiliang',
@@ -26,9 +33,9 @@ Page({
       width: 320,
       mode: "mid"
     },
-    btn_cancel: {
-      tapFun: 'offPiliang',
-      text: "取消",
+    btn_chooseall: {
+      tapFun: 'chooseall',
+      text: "全选",
       color: "#7250c8",
       width: 320,
       mode: "left"
@@ -48,8 +55,6 @@ Page({
       mode: "left"
     },
     invoiceWidth: 710,
-    invoices: [], //全部发票信息
-    pocket: [], //发票夹
     date: 0, //筛选月份
     zl: 0, //发票种类  -1代表未筛选状态
     shaixuan: false, //筛选开关
@@ -59,6 +64,7 @@ Page({
     chooseall: false, //全选开关
   },
 
+  // 开启筛选
   onShaixuan: function () {
     //发票夹是空的或筛选结果为空时不允许切换筛选状态
     if (this.data.pocket == '') {
@@ -70,8 +76,38 @@ Page({
       shaixuan: true,
       btn_shaixuan: this.data.btn_shaixuan
     })
+    
   },
 
+  // 按查验状态筛选
+  chooseState: function () {
+    var that = this
+    wx.showActionSheet({
+      itemList: ['已查验', '未查验'],
+      success(res) {
+        that.data.pocket=[]
+        if (res.tapIndex == 0) {
+          for (var i = 0; i < that.data.invoices.length; i++) {
+            if (that.data.invoices[i]['state'] == 1) {
+              that.data.pocket.push(that.data.invoices[i])
+            } 
+          }
+        }
+        else if(res.tapIndex == 1){
+          for (var i = 0; i < that.data.invoices.length; i++) {
+            if (that.data.invoices[i]['state'] == 0) {
+              that.data.pocket.push(that.data.invoices[i])
+            }
+          }
+        }
+        that.setData({
+          pocket: that.data.pocket,
+        })
+      }
+    })
+  },
+
+  // 发票种类筛选
   invoiceType: function () {
     var that = this
     wx.showActionSheet({
@@ -87,6 +123,9 @@ Page({
         else {
           tempzl = "01"
         }
+        that.setData({
+          zl: tempzl,
+        })
         //判断日期筛选是否启动
         if (that.data.date != 0) {
           var datearr = that.data.date.split('-')
@@ -131,6 +170,7 @@ Page({
     })
   },
 
+  // 开启批量
   onPiliang: function () {
     var that = this
     this.data.btn_piliang.tapFun = "checkall"
@@ -142,22 +182,22 @@ Page({
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth - 9,
+        invoiceWidth: that.data.invoiceWidth - 5,
       })
       if (that.data.invoiceWidth <= 610) {
         clearInterval(move)
       }
-    }, 17)
-    var btn_cancel = setInterval(function () {
-      var data_cancel = that.data.btn_cancel
+    }, 26)
+    var btn_chooseall = setInterval(function () {
+      var data_cancel = that.data.btn_chooseall
       data_cancel.width = data_cancel.width + 20
       that.setData({
-        btn_cancel: data_cancel
+        btn_chooseall: data_cancel
       })
-      if (that.data.btn_cancel.width >= 453) {
-        clearInterval(btn_cancel)
+      if (that.data.btn_chooseall.width >= 453) {
+        clearInterval(btn_chooseall)
       }
-    }, 17)
+    }, 26)
     var btn_delete = setInterval(function () {
       var data_delete = that.data.btn_delete
       data_delete.width = data_delete.width + 25
@@ -167,7 +207,7 @@ Page({
       if (that.data.btn_delete.width >= 565) {
         clearInterval(btn_delete)
       }
-    }, 17)
+    }, 26)
     var btn_tongji = setInterval(function () {
       var data_tongji = that.data.btn_tongji
       data_tongji.width = data_tongji.width + 30
@@ -177,9 +217,10 @@ Page({
       if (that.data.btn_tongji.width >= 680) {
         clearInterval(btn_tongji)
       }
-    }, 17)
+    }, 26)
   },
 
+  // 关闭批量
   offPiliang: function () {
     var that = this
     var temp = this.data.checked
@@ -198,22 +239,22 @@ Page({
     })
     var move = setInterval(function () {
       that.setData({
-        invoiceWidth: that.data.invoiceWidth + 9,
+        invoiceWidth: that.data.invoiceWidth + 5,
       })
       if (that.data.invoiceWidth >= 710) {
         clearInterval(move)
       }
-    }, 17)
-    var btn_cancel = setInterval(function () {
-      var data_cancel = that.data.btn_cancel
+    }, 26)
+    var btn_chooseall = setInterval(function () {
+      var data_cancel = that.data.btn_chooseall
       data_cancel.width = data_cancel.width - 20
       that.setData({
-        btn_cancel: data_cancel
+        btn_chooseall: data_cancel
       })
-      if (that.data.btn_cancel.width <= 320) {
-        clearInterval(btn_cancel)
+      if (that.data.btn_chooseall.width <= 320) {
+        clearInterval(btn_chooseall)
       }
-    }, 17)
+    }, 26)
     var btn_delete = setInterval(function () {
       var data_delete = that.data.btn_delete
       data_delete.width = data_delete.width - 25
@@ -223,7 +264,7 @@ Page({
       if (that.data.btn_delete.width <= 320) {
         clearInterval(btn_delete)
       }
-    }, 17)
+    }, 26)
     var btn_tongji = setInterval(function () {
       var data_tongji = that.data.btn_tongji
       data_tongji.width = data_tongji.width - 30
@@ -233,26 +274,9 @@ Page({
       if (that.data.btn_tongji.width <= 320) {
         clearInterval(btn_tongji)
       }
-    }, 17)
+    }, 26)
   },
 
-  //筛选按钮
-  shaixuan: function () {
-    //发票夹是空的或筛选结果为空时不允许切换筛选状态
-    if (this.data.pocket == '') {
-      return
-    } else if (this.data.shaixuan) {
-      this.setData({
-        shaixuan: false,
-        scroll_height: this.data.scroll_height + this.data.windowHeight * 0.08,
-      })
-    } else {
-      this.setData({
-        shaixuan: true,
-        scroll_height: this.data.scroll_height - this.data.windowHeight * 0.08,
-      })
-    }
-  },
   //恢复显示全部
   all: function () {
     this.setData({
@@ -275,61 +299,6 @@ Page({
       if (this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
         if (this.data.zl == 0 || this.data.invoices[i]['fp_qz'] == this.data.zl) {
           temp.push(this.data.invoices[i])
-        }
-      }
-    }
-    this.setData({
-      pocket: temp
-    })
-  },
-
-  //发票种类筛选模块
-  changezl: function (e) {
-    var tempzl = 0
-    if (e.detail.value == 0) {
-      tempzl = "10"
-    } else if (e.detail.value == 1) {
-      tempzl = "04"
-    } else {
-      tempzl = "01"
-    }
-    this.setData({
-      zl: tempzl,
-    })
-    //判断日期筛选是否启动
-    if (this.data.date != 0) {
-      var datearr = this.data.date.split('-')
-    }
-    var temp = []
-    //增值税电子普通发票
-    if (this.data.zl == "10") {
-      for (var i = 0; i < this.data.invoices.length; i++) {
-        if (this.data.invoices[i]['fp_qz'] == '10') {
-          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
-            temp.push(this.data.invoices[i])
-          }
-        }
-      }
-    }
-    //增值税普通发票
-    else if (this.data.zl == "04") {
-      var temp = []
-      for (var i = 0; i < this.data.invoices.length; i++) {
-        if (this.data.invoices[i]['fp_qz'] == '04') {
-          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
-            temp.push(this.data.invoices[i])
-          }
-        }
-      }
-    }
-    //增值税专用发票
-    else if (this.data.zl == "01") {
-      var temp = []
-      for (var i = 0; i < this.data.invoices.length; i++) {
-        if (this.data.invoices[i]['fp_qz'] == '01') {
-          if (this.data.date == 0 || this.data.invoices[i]['kp_rq'].substring(0, 4) == datearr[0] && this.data.invoices[i]['kp_rq'].substring(5, 7) == datearr[1]) {
-            temp.push(this.data.invoices[i])
-          }
         }
       }
     }
@@ -474,50 +443,23 @@ Page({
     })
   },
 
-  //全选
+  //全选按钮
   chooseall: function () {
     if (!this.data.chooseall) {
       for (var i = 0; i < this.data.checked.length; i++) {
         this.data.checked[i] = true
       }
+      this.data.btn_chooseall.text = '取消'
     } else {
       for (var i = 0; i < this.data.checked.length; i++) {
         this.data.checked[i] = false
       }
+      this.data.btn_chooseall.text = '全选'
     }
     this.setData({
+      btn_chooseall: this.data.btn_chooseall,
       checked: this.data.checked,
       chooseall: !this.data.chooseall
-    })
-  },
-
-  //全选已查验过的发票
-  choosechecked: function () {
-    for (var i = 0; i < this.data.pocket.length; i++) {
-      if (this.data.pocket[i]['state'] == 1) {
-        this.data.checked[i] = true
-      } else {
-        this.data.checked[i] = false
-      }
-    }
-    this.setData({
-      checked: this.data.checked,
-      chooseall: true
-    })
-  },
-
-  //全选未查验的发票
-  chooseunchecked: function () {
-    for (var i = 0; i < this.data.pocket.length; i++) {
-      if (this.data.pocket[i]['state'] == 0) {
-        this.data.checked[i] = true
-      } else {
-        this.data.checked[i] = false
-      }
-    }
-    this.setData({
-      checked: this.data.checked,
-      chooseall: true
     })
   },
 

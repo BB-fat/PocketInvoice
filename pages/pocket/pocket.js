@@ -26,6 +26,9 @@ Page({
       width: 320,
       mode: "right"
     },
+    btn_riqi:{
+      width:320,
+    },
     btn_piliang: {
       tapFun: 'onPiliang',
       text: "批量管理",
@@ -66,6 +69,7 @@ Page({
 
   // 开启筛选
   onShaixuan: function () {
+    var that=this
     //发票夹是空的或筛选结果为空时不允许切换筛选状态
     if (this.data.pocket == '') {
       return
@@ -76,7 +80,56 @@ Page({
       shaixuan: true,
       btn_shaixuan: this.data.btn_shaixuan
     })
-    
+    var btn_zhuangtai = setInterval(function () {
+      var data_cancel = that.data.btn_zhuangtai
+      data_cancel.width = data_cancel.width + 20
+      that.setData({
+        btn_zhuangtai: data_cancel
+      })
+      if (that.data.btn_zhuangtai.width >= 487) {
+        clearInterval(btn_zhuangtai)
+      }
+    }, 26)
+    var btn_riqi = setInterval(function () {
+      var data_cancel = that.data.btn_riqi
+      data_cancel.width = data_cancel.width + 30
+      that.setData({
+        btn_riqi: data_cancel
+      })
+      if (that.data.btn_riqi.width >= 680) {
+        clearInterval(btn_riqi)
+      }
+    }, 26)
+  },
+
+  offShaixuan:function(){
+    var that=this
+    this.data.btn_shaixuan.text = '取消筛选'
+    this.data.btn_shaixuan.tapFun = 'all'
+    this.setData({
+      shaixuan:false,
+      btn_shaixuan: this.data.btn_shaixuan
+    })
+    var btn_zhuangtai = setInterval(function () {
+      var data_cancel = that.data.btn_zhuangtai
+      data_cancel.width = data_cancel.width - 20
+      that.setData({
+        btn_zhuangtai: data_cancel
+      })
+      if (that.data.btn_zhuangtai.width <= 320) {
+        clearInterval(btn_zhuangtai)
+      }
+    }, 26)
+    var btn_riqi = setInterval(function () {
+      var data_cancel = that.data.btn_riqi
+      data_cancel.width = data_cancel.width - 30
+      that.setData({
+        btn_riqi: data_cancel
+      })
+      if (that.data.btn_riqi.width >= 320) {
+        clearInterval(btn_riqi)
+      }
+    }, 26)
   },
 
   // 按查验状态筛选

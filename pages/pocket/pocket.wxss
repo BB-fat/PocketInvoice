@@ -49,6 +49,12 @@
   left: 30rpx;
 }
 
+.btn-riqi{
+  position: absolute;
+  z-index: 1;
+  left: 30rpx;
+}
+
 .btn-piliang{
   position: absolute;
   z-index: 4;

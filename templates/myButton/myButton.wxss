@@ -39,7 +39,7 @@
 }
 
 .lineButton-hover {
-  background-color: #fafafa;
+  background-color: #dfdfdf;
 }
 
 .lineButton-symbol{

@@ -55,6 +55,16 @@
   left: 30rpx;
 }
 
+.btn-offShaixuan{
+  position: absolute;
+  z-index: 1;
+  bottom: 100rpx;
+  right: 50rpx;
+  height: 40rpx;
+  width: 40rpx;
+  background-color: yellow;
+}
+
 .btn-piliang{
   position: absolute;
   z-index: 4;
@@ -77,4 +87,14 @@
   position: absolute;
   z-index: 1;
   right: 30rpx;
+}
+
+.btn_offPiliang{
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(233, 52, 233);
+  width: 40rpx;
+  height: 40rpx;
+  bottom: 100rpx;
+  right: 50rpx;
 }

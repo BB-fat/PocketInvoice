@@ -30,6 +30,7 @@
       </picker>
     </view>
   </view>
+  <view wx:if='{{shaixuan}}' class="btn-offShaixuan" bindtap="offShaixuan"></view>
   <!-- 批量模块 -->
   <view wx:if='{{!shaixuan}}'>
     <view class="btn-piliang">
@@ -45,4 +46,5 @@
       <template is="coolButton" data='{{...btn_tongji}}'></template>
     </view>
   </view>
+  <view wx:if='{{piliang}}' class="btn_offPiliang" bindtap="offPiliang"></view>
 </view>

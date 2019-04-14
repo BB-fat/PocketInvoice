@@ -1,7 +1,6 @@
 // pages/mine/mine.js
 const app = getApp();
 import {
-  checksocket,
   sendmsg,
   checkEmail
 } from "../normal.js"
@@ -126,7 +125,7 @@ Page({
       that.setData({
         btn_riqi: data_cancel
       })
-      if (that.data.btn_riqi.width >= 320) {
+      if (that.data.btn_riqi.width <= 320) {
         clearInterval(btn_riqi)
       }
     }, 26)
@@ -332,12 +331,13 @@ Page({
 
   //恢复显示全部
   all: function () {
+    this.data.btn_shaixuan.tapFun='onShaixuan'
+    this.data.btn_shaixuan.text='发票筛选'
     this.setData({
       date: 0,
-      zl: 0
-    })
-    this.setData({
-      pocket: this.data.invoices
+      zl: 0,
+      pocket: this.data.invoices,
+      btn_shaixuan:this.data.btn_shaixuan
     })
   },
 
@@ -598,15 +598,4 @@ Page({
       //在此添加后续指令
     })
   }, //end onShow
-
-  onPullDownRefresh: function () {
-    this.setData({
-      date: 0,
-      zl: 0
-    })
-    var t_data = JSON.stringify({
-      "cmd": 111,
-    })
-    sendmsg(t_data)
-  },
 })

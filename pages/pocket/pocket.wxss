@@ -59,10 +59,9 @@
   position: absolute;
   z-index: 1;
   bottom: 100rpx;
-  right: 50rpx;
-  height: 40rpx;
-  width: 40rpx;
-  background-color: yellow;
+  right: 40rpx;
+  height: 94rpx;
+  width: 94rpx;
 }
 
 .btn-piliang{
@@ -92,9 +91,8 @@
 .btn_offPiliang{
   position: absolute;
   z-index: 1;
-  background-color: rgb(233, 52, 233);
-  width: 40rpx;
-  height: 40rpx;
+  width: 94rpx;
+  height: 94rpx;
   bottom: 100rpx;
-  right: 50rpx;
+  right: 30rpx;
 }

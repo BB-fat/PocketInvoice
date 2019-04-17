@@ -23,14 +23,14 @@
       <template is='coolButton' data='{{...btn_zhuangtai}}' />
     </view>
     <view class="btn-riqi">
-      <picker mode='date' fields='month' value='{{date}}' bindchange='changedate' hover-class='default-hover' class="coolButton-view"
-      style="align-items: flex-end;background-color:#e3c123;width:{{btn_riqi.width}}rpx">
-        <view wx:if='{{date==0}}'class="coolButton-text" style="margin-right:35rpx;">选择月份</view>
+      <picker mode='date' fields='month' value='{{date}}' bindchange='changedate' hover-class='default-hover' class="coolButton-view" style="align-items: flex-end;background-color:#e3c123;width:{{btn_riqi.width}}rpx">
+        <view wx:if='{{date==0}}' class="coolButton-text" style="margin-right:35rpx;">选择月份</view>
         <view wx:else class="coolButton-text" style="margin-right:35rpx;">{{date}}</view>
       </picker>
     </view>
   </view>
-  <view wx:if='{{shaixuan}}' class="btn-offShaixuan" bindtap="offShaixuan"></view>
+  <image wx:if='{{shaixuan}}' class="btn-offShaixuan" bindtap="offShaixuan" src="../../imgs/pocket/invoice_backicon_orange@2x.png">
+  </image>
   <!-- 批量模块 -->
   <view wx:if='{{!shaixuan}}'>
     <view class="btn-piliang">
@@ -46,5 +46,5 @@
       <template is="coolButton" data='{{...btn_tongji}}'></template>
     </view>
   </view>
-  <view wx:if='{{piliang}}' class="btn_offPiliang" bindtap="offPiliang"></view>
+  <image wx:if='{{piliang}}' class="btn_offPiliang" bindtap="offPiliang" src="../../imgs/pocket/invoice_backicon_purple@2x.png"></image>
 </view>

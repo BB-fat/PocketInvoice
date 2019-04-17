@@ -15,9 +15,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f0f3f5",
+    "navigationBarBackgroundColor": "#6193cd",
     "navigationBarTitleText": "口袋发票",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#f0f3f5"
   },
   "sitemapLocation": "sitemap.json"

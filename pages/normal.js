@@ -9,7 +9,7 @@ export function connect() {
       var secret = md5('101' + code + 'kdfp')
       // console.log(secret)
       wx.connectSocket({
-        url: 'ws://106.13.44.41',
+        url: 'wss://rainyou.cn',
         header: {
           'cmd': 101,
           'code': code,

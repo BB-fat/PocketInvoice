@@ -87,7 +87,7 @@
       <button class='button' style='color:#368299' bindtap='send_email'>发送邮箱</button>
     </view>
     <button wx:if='{{data.state==0}}' class='button' style='color:#368299' bindtap='check'>查验</button>
-    <button class='button' bindtap='back'>返回票夹</button>
+    <!-- <button class='button' bindtap='toPocket'>前往票夹</button> -->
     <view style='height:30rpx'></view>
   </view>
 </view>

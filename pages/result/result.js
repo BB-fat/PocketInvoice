@@ -17,14 +17,14 @@ Page({
   //预览图片
   previewing: function() {
     wx.previewImage({
-      urls: ['http://62.234.137.114/image/' + this.data.data['fpdm'] + this.data.data['fphm']],
+      urls: ['http://106.13.44.41/image/' + this.data.data['fpdm'] + this.data.data['fphm']],
     })
   },
 
   //返回主页
-  back: function() {
-    wx.switchTab({
-      url: '../mine/mine',
+  toPocket: function() {
+    wx.redirectTo({
+      url: '../pocket/pocket',
     })
   },
 

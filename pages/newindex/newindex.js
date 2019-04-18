@@ -161,8 +161,11 @@ Page({
           return
         }
         //通过错误检测，等待图标出现
-        that.setData({
-          mainhide: !that.data.mainhide
+        // that.setData({
+        //   mainhide: !that.data.mainhide
+        // })
+        wx.showLoading({
+          title: '正在获取验证码',
         })
         //发送资料包
         that.data.data = {

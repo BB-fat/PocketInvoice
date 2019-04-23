@@ -1,0 +1,118 @@
+/* pages/newresult/newresult.wxss */
+
+.pageView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.background{
+    position: absolute;
+    z-index: 0;
+    top: 48rpx;
+    width: 90%;
+    height: 600rpx;
+    box-shadow: 0px 3px 5px 1px;
+
+}
+
+.commonItem {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.line {
+    width: 90%;
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoLine {
+    width: 90%;
+    margin-top: 76rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 23rpx;
+    width: 46rpx;
+}
+
+.title {
+    font-size: 23rpx;
+    margin-left: 5rpx;
+}
+
+.invoiceHead {
+    font-size: 35rpx;
+    color: #973737;
+    justify-content: center;
+    margin-top: 105rpx;
+}
+
+.topic {
+    margin-left: 35rpx;
+    color: #b1b1b1b1;
+    font-size: 30rpx;
+}
+
+.item {
+    margin-right: 35rpx;
+    font-size: 30rpx;
+}
+
+.xian{
+    width: 65%;
+    height: 2rpx;
+    background-color: #81511C;
+    opacity: 0.25;
+    align-self: center;
+    margin-top: 30rpx;
+  }
+
+  .checkedinfo{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #attrs{
+    margin-top: 30rpx;
+    width:82%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 26rpx;
+    color:#b1b1b1b1; 
+  }
+  .swiper{
+    height: 215rpx;
+    width: 82%;
+    align-self: center;
+    font-size: 20rpx;
+  }
+
+  .swiper-item{
+    display: flex;
+    flex-direction: row;
+    margin-top: 13rpx;
+  }
+  
+  .moreinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  

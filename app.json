@@ -11,7 +11,8 @@
     "pages/manual/manual",
     "pages/personal/personal",
     "pages/vip/vip",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/newresult/newresult"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,6 +20,5 @@
     "navigationBarTitleText": "口袋发票",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f0f3f5"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

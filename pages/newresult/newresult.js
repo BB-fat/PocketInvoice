@@ -8,26 +8,52 @@ const app = getApp()
 
 Page({
   data: {
-    data: {},
-    allstyle: '', //控制mainview高度
-    fp_height: 900,
+    btn_check: {
+      tapFun: 'check',
+      text: "立即查验",
+      color: "#5087c8",
+      width: 620,
+      mode: "mid"
+    },
+    btn_nativePic: {
+      tapFun: 'previewing',
+      text: "查看原图",
+      color: "#5087c8",
+      width: 620,
+      mode: "mid"
+    },
+    btn_sendEmail: {
+      tapFun: 'send_email',
+      text: "发送邮箱",
+      color: "#5087c8",
+      width: 620,
+      mode: "mid"
+    },
+    btn_delete: {
+      tapFun: 'delete',
+      text: "删除",
+      color: "#e77a72",
+      width: 620,
+      mode: "mid"
+
+    }
   },
 
   //预览图片
-  previewing: function() {
+  previewing: function () {
     wx.previewImage({
       urls: ['http://106.13.44.41/image/' + this.data.data['fpdm'] + this.data.data['fphm']],
     })
   },
 
   //返回主页
-  toPocket: function() {
+  toPocket: function () {
     wx.redirectTo({
       url: '../pocket/pocket',
     })
   },
 
-  check: function() {
+  check: function () {
     var t_data = this.data.data
     // 将发票数据退格式化
     t_data['kp_je'] = t_data['kp_je'].replace('¥', '')
@@ -44,7 +70,7 @@ Page({
   },
 
   //发送邮箱
-  send_email: function() {
+  send_email: function () {
     if (!checkEmail(app)) {
       return
     }
@@ -56,30 +82,75 @@ Page({
     sendmsg(t_data)
     wx.showLoading({
       title: '正在发送',
-      mask:true
+      mask: true
     })
   },
 
-  onLoad: function(options) {
+  delete: function () {
+    var that=this
+    //显示删除提示
+    wx.showModal({
+      title: '删除',
+      content: '确定删除所选发票？',
+      success(res) {
+        if (res.cancel) {
+          return
+        } else {
+          var t_data = {
+            cmd: 113,
+            list: []
+          }
+          if(that.data.data.state==1){
+            t_data.list.push(that.data.data.fpdm+that.data.data.fphm)
+          }else{
+            t_data.list.push(that.data.data.fp_dm+that.data.data.fp_hm)
+          }
+          sendmsg(JSON.stringify(t_data))
+          wx.showToast({
+            title: '完成',
+            icon: 'success',
+          })
+          setTimeout(function(){
+            wx.navigateBack()
+          },1000)
+        }
+      }
+    })
+  },
+
+  onLoad: function (options) {
     var that = this;
+    var windowHeight = 0;
     that.setData({
       data: JSON.parse(options.data),
     })
+    // 获取窗口高度
+    wx.getSystemInfo({
+      success(res) {
+        windowHeight = res.windowHeight
+      }
+    })
     //以查验的发票请求详细信息
     if (this.data.data['state'] == 1) {
-      //更换背景图片，重新设定fp高度
+      that.setData({
+        pageViewHeight: windowHeight + 230
+      })
       var t_data = {
         'cmd': 116,
         'key': this.data.data['fp_dm'] + this.data.data['fp_hm'],
       }
       sendmsg(JSON.stringify(t_data))
+    } else {
+      that.setData({
+        pageViewHeight: windowHeight
+      })
     }
   },
 
 
-  onShow: function() {
+  onShow: function () {
     var that = this
-    wx.onSocketMessage(function(res) {
+    wx.onSocketMessage(function (res) {
       wx.hideLoading()
       console.log('recieve:' + res.data)
       var data = JSON.parse(res.data);

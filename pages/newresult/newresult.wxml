@@ -1,5 +1,6 @@
 <!--pages/newresult/newresult.wxml-->
-<view class="pageView">
+<import src='../../templates/myButton/myButton.wxml' />
+<view class="pageView" style="height:{{pageViewHeight}}px">
     <view class="commonItem">
         <view class="logoLine" style="justify-content: center">
             <image class="logo" src='../../imgs/result/micrologo.png'></image>
@@ -9,7 +10,7 @@
             <text wx:if='{{data.state==0}}'>{{data.fp_zl}}</text>
             <text wx:else>{{data.fplx}}</text>
         </view>
-        <view style="height:70rpx"></view>
+        <view style="height:40rpx"></view>
         <view class='line' wx:if='{{data.state==1}}'>
             <text class='topic'>查验时间:</text>
             <text class='item'>{{data.time}}</text>
@@ -45,41 +46,49 @@
             <text wx:else class='item'>{{data.code}}</text>
         </view>
         <!-- 分割线 -->
-        <view wx:if='{{data.state==1}}' class='xian' style='width:81%'></view>
-        <view class='checkedinfo' wx:if='{{data.state==1}}'>
-            <view class='line'>
-                <text class='topic'>购买方：</text>
-                <text class='item'>{{data.gfMc}}</text>
-            </view>
-            <view class='line'>
-                <text class='topic'>销售方：</text>
-                <text class='item'>{{data.xfMc}}</text>
-            </view>
-            <!-- 分割线 -->
-            <view class='xian' style='width:81%'></view>
-            <view class='line' id='attrs'>
-                <text style='width:30%'>货物或对应劳务、服务名称</text>
-                <text>数量</text>
-                <text>单价</text>
-                <text>金额</text>
-                <text>税率</text>
-            </view>
-            <swiper class='swiper' autoplay='true' indicator-dots='true'>
-                <swiper-item class='swiper-item' wx:for='{{data.goodsData}}'>
-                    <view class='moreinfo' style='width:270rpx'>{{item.name}}</view>
-                    <view style='width:155rpx'></view>
-                    <view class='moreinfo' style='width:70rpx'>{{item.amount}}</view>
-                    <view style='width:115rpx'></view>
-                    <view class='moreinfo' style='width:70rpx'>{{item.priceUnit}}</view>
-                    <view style='width:115rpx'></view>
-                    <view class='moreinfo' style='width:70rpx'>{{item.priceSum}}</view>
-                    <view style='width:115rpx'></view>
-                    <view class='moreinfo' style='width:70rpx'>{{item.taxRate}}</view>
-                </swiper-item>
-            </swiper>
-            <!-- end checkinfo -->
+        <image wx:if='{{data.state==1}}'  class="xian" src='../../imgs/result/detail_invoice_line.png'>
+        </image>
+        <view  wx:if='{{data.state==1}}' class='line'>
+            <text class='topic'>购买方：</text>
+            <text class='item'>{{data.gfMc}}</text>
         </view>
+        <view  wx:if='{{data.state==1}}' class='line'>
+            <text class='topic'>销售方：</text>
+            <text class='item'>{{data.xfMc}}</text>
+        </view>
+        <!-- 分割线 -->
+        <image  wx:if='{{data.state==1}}' class="xian" src='../../imgs/result/detail_invoice_line.png'></image>
+        <view  wx:if='{{data.state==1}}' class='line' id='attrs'>
+            <text style='width:30%'>货物或对应劳务、服务名称</text>
+            <text>数量</text>
+            <text>单价</text>
+            <text>金额</text>
+            <text>税率</text>
+        </view>
+        <swiper  wx:if='{{data.state==1}}' class='swiper' autoplay='true'>
+            <swiper-item class='swiper-item' wx:for='{{data.goodsData}}'>
+                <view class='moreinfo' style='width:270rpx'>{{item.name}}</view>
+                <view style='width:155rpx'></view>
+                <view class='moreinfo' style='width:70rpx'>{{item.amount}}</view>
+                <view style='width:115rpx'></view>
+                <view class='moreinfo' style='width:70rpx'>{{item.priceUnit}}</view>
+                <view style='width:115rpx'></view>
+                <view class='moreinfo' style='width:70rpx'>{{item.priceSum}}</view>
+                <view style='width:115rpx'></view>
+                <view class='moreinfo' style='width:70rpx'>{{item.taxRate}}</view>
+            </swiper-item>
+        </swiper>
+        <view  wx:if='{{data.state==0}}' style="height:300rpx"></view>
+        <template wx:if='{{data.state==0}}' is='coolButton' data='{{...btn_check}}'/>
+        <view wx:if='{{data.state==1}}' style="height:35rpx"></view>
+        <template wx:if='{{data.state==1}}' is='coolButton' data='{{...btn_nativePic}}'/>
+        <view wx:if='{{data.state==1}}' style="height:35rpx"></view>
+        <template wx:if='{{data.state==1}}' is='coolButton' data='{{...btn_sendEmail}}'/>
+        <view style="height:35rpx"></view>
+        <template is='coolButton' data='{{...btn_delete}}'/>
+        <!-- end checkinfo -->
     </view>
-    <image wx:if='{{data.state==0}}' style="height:800rpx" class="background" src='../../imgs/result/detail_invoice_uncheck.png'></image>
+    <image wx:if='{{data.state==0}}' style="height:800rpx" class="background"
+        src='../../imgs/result/detail_invoice_uncheck.png'></image>
     <image wx:else class="background" style="height:1120rpx" src='../../imgs/result/detail_invoice_checked.png'></image>
 </view>

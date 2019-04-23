@@ -427,26 +427,6 @@ Page({
   //批量删除
   deleteall: function (e) {
     var that = this
-    var t_data = {
-      'cmd': 113,
-      'list': []
-    }
-    var temp = [] //用以储存删除后的选框状态列表
-    //生成已选信息列表
-    for (var i = 0; i < that.data.checked.length; i++) {
-      if (that.data.checked[i]) {
-        t_data['list'].push(that.data.pocket[i]['fp_dm'] + that.data.pocket[i]['fp_hm'])
-      } else {
-        temp.pop(false) //重设选中状态
-      }
-    }
-    if (t_data['list'] == '') {
-      wx.showToast({
-        title: '请至少选择一张发票',
-        icon: 'none',
-      })
-      return
-    }
     //显示删除提示
     wx.showModal({
       title: '删除',
@@ -455,6 +435,26 @@ Page({
         if (res.cancel) {
           return
         } else {
+          var t_data = {
+            'cmd': 113,
+            'list': []
+          }
+          var temp = [] //用以储存删除后的选框状态列表
+          //生成已选信息列表
+          for (var i = 0; i < that.data.checked.length; i++) {
+            if (that.data.checked[i]) {
+              t_data['list'].push(that.data.pocket[i]['fp_dm'] + that.data.pocket[i]['fp_hm'])
+            } else {
+              temp.pop(false) //重设选中状态
+            }
+          }
+          if (t_data['list'] == '') {
+            wx.showToast({
+              title: '请至少选择一张发票',
+              icon: 'none',
+            })
+            return
+          }      
           sendmsg(JSON.stringify(t_data))
           wx.showToast({
             title: '完成',
@@ -516,7 +516,11 @@ Page({
     })
   },
 
-  onLoad: function () {
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this
     var t_data = JSON.stringify({
       "cmd": 111,
     })
@@ -524,18 +528,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this
     //初始化各种状态
     this.setData({
       date: 0,
       zl: 0,
       checked: [],
+      invoices:[]
     })
     wx.onSocketMessage(function (res) {
       console.log('recieve:' + res.data)

@@ -2,10 +2,8 @@
   "pages": [
     "pages/newindex/newindex",
     "pages/pocket/pocket",
-    "pages/index/index",
     "pages/yz/yz",
     "pages/result/result",
-    "pages/mine/mine",
     "pages/email/email",
     "pages/welcome/welcome",
     "pages/manual/manual",
@@ -20,5 +18,6 @@
     "navigationBarTitleText": "口袋发票",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f0f3f5"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

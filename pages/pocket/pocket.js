@@ -14,14 +14,14 @@ Page({
     btn_shaixuan: {
       tapFun: 'onShaixuan',
       text: "发票筛选",
-      color: "#d3922b",
+      color: "#ef9e1e",
       width: 320,
       mode: "mid"
     },
     btn_zhuangtai: {
       tapFun: 'chooseState',
       text: "查验状态",
-      color: "#E19C2E",
+      color: "#f5aa33",
       width: 320,
       mode: "right"
     },
@@ -52,7 +52,7 @@ Page({
     btn_tongji: {
       tapFun: 'excel',
       text: "统计",
-      color: "#c79841",
+      color: "#ef9e1e",
       width: 320,
       mode: "left"
     },

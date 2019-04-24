@@ -16,7 +16,7 @@
       </view>
       <view class="invoice-kpje-view">
         <text class="invoice-data-title">开票金额：</text>
-        <text style="color:#D3922B">{{kp_je}}</text>
+        <text style="color:#ef9e1e">{{kp_je}}</text>
       </view>
     </view>
     <image src='../../imgs/pocket/invoice_card_mask@2x.png' class='invoice-backgroundImg2'

@@ -44,13 +44,13 @@
 }
 
 .logo {
-  height: 23rpx;
-  width: 46rpx;
+  height: 30rpx;
+  width: 50rpx;
 }
 
 .title {
-  font-size: 23rpx;
-  margin-left: 5rpx;
+  font-size: 24rpx;
+  margin-left: 8rpx;
 }
 
 .invoiceHead {
@@ -61,13 +61,13 @@
 }
 
 .topic {
-  margin-left: 35rpx;
+  margin-left: 50rpx;
   color: #b1b1b1b1;
   font-size: 30rpx;
 }
 
 .item {
-  margin-right: 35rpx;
+  margin-right: 50rpx;
   font-size: 30rpx;
 }
 

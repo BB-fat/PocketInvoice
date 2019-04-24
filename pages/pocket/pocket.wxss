@@ -53,6 +53,7 @@
   position: absolute;
   z-index: 1;
   left: 30rpx;
+  color: #f5d333
 }
 
 .btn-offShaixuan{

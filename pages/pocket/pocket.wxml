@@ -23,7 +23,7 @@
       <template is='coolButton' data='{{...btn_zhuangtai}}' />
     </view>
     <view class="btn-riqi">
-      <picker mode='date' fields='month' value='{{date}}' bindchange='changedate' hover-class='default-hover' class="coolButton-view" style="align-items: flex-end;background-color:#e3c123;width:{{btn_riqi.width}}rpx">
+      <picker mode='date' fields='month' value='{{date}}' bindchange='changedate' hover-class='default-hover' class="coolButton-view" style="align-items: flex-end;background-color:#f5d333;width:{{btn_riqi.width}}rpx">
         <view wx:if='{{date==0}}' class="coolButton-text" style="margin-right:35rpx;">选择月份</view>
         <view wx:else class="coolButton-text" style="margin-right:35rpx;">{{date}}</view>
       </picker>

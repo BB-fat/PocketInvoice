@@ -1,6 +1,7 @@
 <!--pages/newindex/newindex.wxml-->
 <import src='../../templates/myButton/myButton.wxml' />
 
+
 <view class='second-floor second-floor-top' style='height:{{firstFloorHeight}}%'>
   <scroll-view class='scrollView' scroll-x>
     <view class='cardView'>

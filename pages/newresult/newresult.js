@@ -4,6 +4,8 @@ import {
   checkEmail
 } from "../normal"
 
+import {imgURL} from "../../settings.js"
+
 const app = getApp()
 
 Page({
@@ -42,7 +44,7 @@ Page({
   //预览图片
   previewing: function () {
     wx.previewImage({
-      urls: ['http://106.13.44.41/image/' + this.data.data['fpdm'] + this.data.data['fphm']],
+      urls: [imgURL+'/image/' + this.data.data['fpdm'] + this.data.data['fphm']],
     })
   },
 

@@ -1,5 +1,5 @@
 import md5 from "md5.js"
-
+import {myURL} from "../settings.js"
 //连接服务器
 export function connect() {
   //登录使服务器获取用户openid
@@ -9,7 +9,7 @@ export function connect() {
       var secret = md5('101' + code + 'kdfp')
       // console.log(secret)
       wx.connectSocket({
-        url: 'ws://106.13.44.41',
+        url: myURL,
         header: {
           'cmd': 101,
           'code': code,

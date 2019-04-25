@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/newindex/newindex",
+    "pages/index/index",
     "pages/pocket/pocket",
     "pages/yz/yz",
     "pages/email/email",
@@ -9,7 +9,7 @@
     "pages/personal/personal",
     "pages/vip/vip",
     "pages/about/about",
-    "pages/newresult/newresult"
+    "pages/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

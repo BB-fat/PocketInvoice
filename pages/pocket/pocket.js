@@ -365,7 +365,7 @@ Page({
     //向result界面传送发票数据
     var data = JSON.stringify(this.data.pocket[e.currentTarget.dataset.id])
     wx.navigateTo({
-      url: '../newresult/newresult?data=' + data,
+      url: '../result/result?data=' + data,
     })
   },
 

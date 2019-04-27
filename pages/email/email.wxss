@@ -1,47 +1,59 @@
 /* pages/email/email.wxss */
 
-.mainview {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 200rpx;
+@import "../../templates/myButton/myButton.wxss";
+.backgroundView {
+  background-color: #6193cd;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
 }
 
-.input-email {
-  width: 90%;
-  height: 75rpx;
-  background-color: rgb(238, 234, 234);
-  border-radius: 5px;
+.topView {
+  background-color: #F0F3F5;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  border-radius: 88rpx 88rpx 0px 0px;
+}
+
+.input {
+  height: 88rpx;
+  background-color: #FAFDFF;
+  border-radius: 44rpx;
   text-align: center;
+}
+
+.input-placeholder {
+  font-size: 31rpx;
+  color: #9E9E9E;
+}
+
+.emailPic {
+  margin-top: 118rpx;
+  height: 177rpx;
+  width: 231rpx;
+}
+
+.text {
+  font-size: 34rpx;
 }
 
 .code-line {
-  align-self: flex-start;
+  width: 620rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin-top: 50rpx;
-  margin-left: 40rpx;
-}
-
-.input-code {
-  text-align: center;
-  width: 400rpx;
-  height: 75rpx;
-  background-color: rgb(238, 234, 234);
-  border-radius: 5px;
 }
 
 .send-code {
-  vertical-align: middle;
-  color: rgb(0, 0, 0);
-  width: 245rpx;
-  height: 75rpx;
-  margin-left: 30rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 88rpx;
+  width: 300rpx;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  background-color: #5087C8;
+  color: white
 }
 
 .send {

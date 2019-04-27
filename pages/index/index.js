@@ -62,14 +62,7 @@ Page({
     }
   },
 
-  onLoad: function() {
-    wx.setBackgroundColor({
-      backgroundColorTop: '#6193CD',
-      backgroundColorBottom: '#f2f2f2'
-    })
-  },
-
-  onShow: function() {
+  onShow: function(options) {
     var that = this
     //等待接收服务器回传的信息
     wx.onSocketMessage(function(res) {
@@ -78,7 +71,8 @@ Page({
       //获取用户相关状态
       if (data['cmd'] == 210) {
         that.setData({
-          limit: data['vip']
+          limit: data['vip'],
+          address:data['address']
         })
         var tempUserdata = {
           'address': data['address'],
@@ -98,18 +92,12 @@ Page({
         wx.navigateTo({
           url: '../yz/yz?url=' + data['verity_code_link'] + '&color=' + data['verity_code_word'],
         })
-        // that.setData({
-        //   mainhide: !that.data.mainhide
-        // })
       } //end answer_no_verity
       //该发票已存在，直接拿到查验结果
       else if (data['cmd'] == 201) {
         wx.navigateTo({
           url: '../result/result?data=' + res.data,
         })
-        // that.setData({
-        //   mainhide: !that.data.mainhide
-        // })
       } //end invoice exist
       //录入发票成功
       else if (data['cmd'] == 205) {
@@ -120,11 +108,9 @@ Page({
       }
       //开票时间在一年以前，无法查验
       else if (data['cmd'] == 206) {
-        // that.setData({
-        //   mainhide: !that.data.mainhide
-        // })
         wx.showToast({
           title: '开票时间一年以上无法查验',
+          icon:'none'
         })
       }
     }) //end socketmessage
@@ -136,7 +122,6 @@ Page({
     wx.scanCode({
       scanType: ['qrCode'],
       success(res) {
-        // console.log(res.result)
         //解析二维码信息，排除错误
         try {
           var temp = res.result;
@@ -160,10 +145,6 @@ Page({
           })
           return
         }
-        //通过错误检测，等待图标出现
-        // that.setData({
-        //   mainhide: !that.data.mainhide
-        // })
         wx.showLoading({
           title: '正在获取验证码',
         })
@@ -190,7 +171,6 @@ Page({
     wx.scanCode({
       scanType: ['qrCode'],
       success(res) {
-        // console.log(res.result)
         //解析二维码信息，排除错误
         try {
           var temp = res.result;
@@ -255,8 +235,9 @@ Page({
   },
 
   toEmail: function() {
+    var that=this
     wx.navigateTo({
-      url: '../email/email',
+      url: '../email/email?address='+that.data.address,
     })
   },
 

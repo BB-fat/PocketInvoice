@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "邮箱绑定"
+  "navigationBarTitleText": "邮箱绑定",
+  "backgroundColorTop":"#6193cd",
+  "backgroundColorBottom":"#F0F3F5",
+  "navigationBarTitleText":"邮箱设置"
 }

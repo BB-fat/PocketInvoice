@@ -1,0 +1,11 @@
+.myInput-placeholder{
+    font-size: 31rpx;
+    color: #9E9E9E;
+    margin-left: 32rpx;
+}
+
+.myInput{
+    height: 88rpx;
+    background-color: #FAFDFF;
+    border-radius: 44rpx;
+}

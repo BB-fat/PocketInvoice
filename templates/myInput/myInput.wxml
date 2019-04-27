@@ -1,0 +1,3 @@
+<template name='coolInput'>
+    <input style="width:{{width}}rpx" class="myInput" value="{{value}}" placeholder="{{placeholder}}" placeholder-class="myInput-placeholder" disabled="{{disabled}}" bindinput="{{inputFunc}}"/>
+</template>

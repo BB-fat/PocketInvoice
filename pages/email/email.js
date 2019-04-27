@@ -11,14 +11,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    button_text: '获取验证码',
+    btn_send: {
+      tapFun: 'send',
+      text: "确定",
+      color: "#EF9E1E",
+      width: 620,
+      mode: "mid"
+    },
+    btn_verity: {
+      tapFun: 'get_verity',
+      text: "点击发送验证码",
+      color: "#5087C8",
+      width: 300,
+      mode: "mid"
+    },
+    btn_changebind: {
+      tapFun: 'changeBind',
+      text: "更改绑定",
+      color: "#EF9E1E",
+      width: 620,
+      mode: "mid"
+    },
+    binded:false,
+    changebind:false,
     address: '', //邮箱地址
     verity: '', //邮箱验证码
     disable_input: false,
-    disable_button: false,
     wait_time: 60,
     verity_send: false,
   },
+
+onLoad:function(options){
+  if(options.address!='None'){
+    this.setData({
+      binded:true,
+      address:options.address
+    })
+  }
+},
+
   //接收邮箱地址
   address: function(e) {
     this.setData({
@@ -49,33 +80,34 @@ Page({
       return;
     }
     //禁用邮箱地址输入
+    that.data.btn_verity.tapFun=''
+    that.data.btn_verity.color='#9E9E9E'
     that.setData({
+      btn_verity:that.data.btn_verity,
+      verity_send: true,
       disable_input: true,
-      verity_send: true
     })
     var t_data = JSON.stringify({
       'address': this.data.address,
       "cmd": 106,
     })
     sendmsg(t_data)
-    this.setData({
-      disable_button: true,
-      disable_input: true,
-    })
     //60秒验证码冷却
     var currentTime = that.data.wait_time
     var interval = setInterval(function() {
       currentTime--;
+      that.data.btn_verity.text=currentTime + 's'
       that.setData({
-        button_text: currentTime + 's'
+        btn_verity:that.data.btn_verity
       })
       if (currentTime <= 0) {
         clearInterval(interval)
+        that.data.btn_verity.tapFun='send'
+        that.data.btn_verity.text='再次获取'
         that.setData({
-          disable_button: false,
+          btn_verity:that.data.btn_verity,
           disable_input: false,
           wait_time: 60,
-          button_text: '再次获取',
           verity_send: false,
         })
       }
@@ -106,6 +138,22 @@ Page({
     sendmsg(t_data)
   },
 
+  changeBind:function(){
+    var that=this
+    wx.showModal({
+      title:"提示",
+      content:"您确定要更改邮箱绑定吗？",
+      showCancel:true,
+      success(res){
+        if(res.confirm){
+          that.setData({
+            changebind:true,
+            address:'',
+          })
+        }
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示

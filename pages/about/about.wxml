@@ -1,10 +1,22 @@
 <!--pages/about/about.wxml-->
-<view class='mainview'>
-  <image class='logo' src='logo.png'></image>
-  <text class='title'>口袋发票</text>
-  <text class='text'>
-    知识产权声明：“口袋发票”团队是本程序知识产权权利人，本程序的知识产权以及与本程序相关的所有信息内容均受法律法规保护。 </text>
-  <text class='text'>用户信息保护：口袋发票不会将您的个人及发票信息转移或披露给任何第三方，不会非法分析用户信息数据。 </text>
-  <text class='text'>版本号：1.0.0 </text>
-  <text class='text'>联系邮箱：KouDaiFaPiao@163.com</text>
+
+<view class="mainView backgroundView"></view>
+<view class='mainView topView'>
+  <image src='../../imgs/logo.png' class="logo"></image>
+  <view style="height:100rpx"></view>
+  <view class="line" hover-class='line-hover'>
+    <text class="leftText">小程序版本</text>
+    <text class="rightText">v1.0.0</text>
+  </view>
+  <view class="xian"></view>
+  <view class="line" hover-class='line-hover'>
+    <text class="leftText">新功能一览</text>
+    <text class="rightText">></text>
+  </view>
+  <view style="height:30rpx"></view>
+  <view class="line" hover-class='line-hover'>
+    <text class="leftText">分享口袋发票</text>
+    <text class="rightText">></text>
+  </view>
+  <text class="tiaokuan">《口袋发票服务条款》</text>
 </view>

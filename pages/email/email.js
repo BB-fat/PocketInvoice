@@ -45,7 +45,7 @@ onLoad:function(options){
   if (app.globalData.userdata.address!='None'){
     this.setData({
       binded:true,
-      address:options.address
+      address: app.globalData.userdata.address
     })
   }
 },

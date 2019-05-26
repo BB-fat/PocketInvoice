@@ -237,7 +237,7 @@ Page({
   toEmail: function() {
     var that=this
     wx.navigateTo({
-      url: '../email/email?address='+that.data.address,
+      url: '../email/email',
     })
   },
 

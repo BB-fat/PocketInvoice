@@ -525,9 +525,6 @@ Page({
       "cmd": 111,
     })
     sendmsg(t_data)
-    wx.showLoading({
-      title: '加载中',
-    })
     //初始化各种状态
     this.setData({
       date: 0,

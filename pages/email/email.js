@@ -42,7 +42,7 @@ Page({
   },
 
 onLoad:function(options){
-  if(options.address!='None'){
+  if (app.globalData.userdata.address!='None'){
     this.setData({
       binded:true,
       address:options.address

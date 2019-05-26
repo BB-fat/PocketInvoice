@@ -29,7 +29,7 @@
 </view>
 
 <view class='second-floor second-floor-bottom'>
-<view class='buttonView-background'></view>
+  <view class='buttonView-background'></view>
   <view class='buttonView'>
     <template is='tabBarButton' data='{{...singleCheck}}' />
     <template is='tabBarButton' data='{{...saveInvoice}}' />
@@ -37,13 +37,13 @@
     <template is='tabBarButton' data='{{...vip}}' />
   </view>
   <view style='height:20rpx;'></view>
-  <template is='lineButton' data='{{...lineButton1}}'/>
+  <template is='lineButton' data='{{...lineButton1}}' />
   <view style='height:20rpx;'></view>
-  <template is='lineButton' data='{{...lineButton2}}'/>
+  <template is='lineButton' data='{{...lineButton2}}' />
   <view style='height:3rpx;'></view>
-  <template is='lineButton' data='{{...lineButton3}}'/>
-    <view style='height:3rpx;'></view>
-  <template is='lineButton' data='{{...lineButton4}}'/>
+  <template is='lineButton' data='{{...lineButton3}}' />
+  <view style='height:3rpx;'></view>
+  <template is='lineButton' data='{{...lineButton4}}' />
 </view>
 
 <view class='mainView background'></view>

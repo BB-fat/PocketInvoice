@@ -88,6 +88,18 @@ Page({
           color: data['verity_code_word']
         })
       }
+      //超时
+      else if(data['cmd'] ==206){
+        wx.showToast({
+          title:"离开太久了",
+          icon:"none"
+        })
+        setTimeout(function(){
+          wx.navigateBack({
+            delta: 1
+          }); 
+        },1000)
+      }
     }) //end onsocketmessage
   }, //end onload
 

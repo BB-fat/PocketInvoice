@@ -14,9 +14,9 @@
     <text class="rightText">></text>
   </view>
   <view style="height:30rpx"></view>
-  <view class="line" hover-class='line-hover'>
+  <button class="line" open-type="share" hover-class='line-hover'>
     <text class="leftText">分享口袋发票</text>
     <text class="rightText">></text>
-  </view>
+  </button>
   <text class="tiaokuan">《口袋发票服务条款》</text>
 </view>

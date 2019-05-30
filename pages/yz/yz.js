@@ -137,6 +137,7 @@ Page({
     sendmsg(t_data)
     wx.showLoading({
       title: '正在更换验证码',
+      mask:true
     })
   },
 })

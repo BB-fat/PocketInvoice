@@ -7,4 +7,10 @@ Page({
   data: {
 
   },
+  new:function(){
+    wx.showToast({
+      title: '敬请期待',
+      icon: 'none',
+    });
+  }
 })

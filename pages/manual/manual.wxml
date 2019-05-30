@@ -1,6 +1,8 @@
 <!--pages/manual/manual.wxml-->
-<view class='mainview' style='height:{{screenHeight}}px'>
-  <view style='margin-top: 100rpx;'></view>
+<import src='../../templates/myButton/myButton.wxml' />
+
+<view class='mainview'>
+  <view style='margin-top: 82rpx;'></view>
   <view class='line'>
     <text class='text'>发票代码</text>
     <input value='{{data.fp_dm}}' class='input' type='number' bindinput='fp_dm' maxlength='12'></input>
@@ -21,8 +23,9 @@
     <text class='text'>校验码</text>
     <input value='{{data.jy}}' class='input' type='number' bindinput='jy' maxlength='20'></input>
   </view>
-  <view class='buttons' style='margin-top: {{screenHeight*0.2}}px;'>
-    <button class='button' bindtap='saveinvoice' style='color:#368299'>录入发票</button>
-    <button class='button' bindtap='tapQueryEvent'>单张查验</button>
+  <view class='buttons'>
+    <template is="coolButton" data='{{...btn_save}}'></template>
+    <view style="height:27rpx"></view>
+    <template is="coolButton" data='{{...btn_check}}'></template>
   </view>
 </view>

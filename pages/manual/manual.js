@@ -14,6 +14,20 @@ Page({
    * 页面的初始数据
    */
   data: {
+    btn_save: {
+      tapFun: 'saveinvoice',
+      text: "入录发票",
+      color: "#2FBAA5",
+      width: 620,
+      mode: "mid"
+    },
+    btn_check: {
+      tapFun: 'tapQueryEvent',
+      text: "单张查验",
+      color: "#5087C8",
+      width: 620,
+      mode: "mid"
+    },
     data: {
       fp_dm: '',
       fp_hm: '',
@@ -94,9 +108,6 @@ Page({
     this.setData({
       end: getNowFormatDate(0),
       start: getNowFormatDate(1),
-    })
-    this.setData({
-      screenHeight: app.globalData.screenHeight
     })
   },
 

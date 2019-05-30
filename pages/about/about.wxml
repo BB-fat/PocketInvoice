@@ -4,15 +4,15 @@
 <view class='mainView topView'>
   <image src='../../imgs/logo.png' class="logo"></image>
   <view style="height:100rpx"></view>
-  <view class="line" hover-class='line-hover'>
+  <button class="line" hover-class='line-hover'>
     <text class="leftText">小程序版本</text>
     <text class="rightText">v1.0.0</text>
-  </view>
+  </button>
   <view class="xian"></view>
-  <view class="line" hover-class='line-hover'>
+  <button bindtap="new" class="line" hover-class='line-hover'>
     <text class="leftText">新功能一览</text>
     <text class="rightText">></text>
-  </view>
+  </button>
   <view style="height:30rpx"></view>
   <button class="line" open-type="share" hover-class='line-hover'>
     <text class="leftText">分享口袋发票</text>

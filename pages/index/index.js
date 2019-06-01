@@ -70,9 +70,20 @@ Page({
       var data = JSON.parse(res.data)
       //获取用户相关状态
       if (data['cmd'] == 210) {
+        var now=new Date().getTime()
+        if(now-data['record_time']<=86400){
+          that.setData({
+            signed:true
+          })
+        }else{
+          that.setData({
+            signed:false
+          })
+        }
         that.setData({
           limit: data['vip'],
-          address:data['address']
+          address:data['address'],
+          record:data['record']
         })
         var tempUserdata = {
           'address': data['address'],
@@ -251,5 +262,13 @@ Page({
     wx.navigateTo({
       url: '../about/about',
     })
+  },
+
+  // 签到
+  sign:function(){
+     var t_data={
+       cmd:119
+    }
+    sendmsg(JSON.stringify(t_data))
   },
 })

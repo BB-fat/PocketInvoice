@@ -118,3 +118,11 @@
   background-color: #6193cd;
   background: linear-gradient(to right, #31a1da, #5087c8  , #5463dc );
 }
+
+.card2-title{
+  margin-top: 30rpx;
+}
+
+.card2-button{
+  margin-top: 170rpx;
+}

@@ -18,6 +18,8 @@
     </view>
     <view class='cardView'>
       <view class='cardItemView'>
+        <text class="cardItem card2-title">本月已签到{{record}}次</text>
+        <button wx:if="{{signed}}" class="cardItem card2-button" bindtap="sign">签到</button>
       </view>
     </view>
     <view class='cardView'>

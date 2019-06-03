@@ -70,7 +70,7 @@ Page({
       var data = JSON.parse(res.data)
       //获取用户相关状态
       if (data['cmd'] == 210) {
-        var now=new Date().getTime()
+        var now=new Date().getTime()/1000
         if(now-data['record_time']<=86400){
           that.setData({
             signed:true
@@ -270,5 +270,9 @@ Page({
        cmd:119
     }
     sendmsg(JSON.stringify(t_data))
+    this.setData({
+      signed:true,
+      record:this.data.record+1
+    })
   },
 })

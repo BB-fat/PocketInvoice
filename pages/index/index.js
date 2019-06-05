@@ -13,6 +13,13 @@ Page({
    */
   data: {
     firstFloorHeight: 72,
+    btn_sign:{
+      tapFun: 'sign',
+      text: "签到",
+      color: "#cd5242",
+      width: 150,
+      mode: "mid"
+    },
     singleCheck: {
       iconSrc: "../../imgs/index/tabbar_icon_singlecheck_default@2x.png",
       text: "单张查验",
@@ -91,11 +98,11 @@ Page({
         }
         app.globalData.userdata = tempUserdata
         //用户第一次使用，跳转到使用帮助
-        if (data['welcome']) {
-          wx.navigateTo({
-            url: '../welcome/welcome',
-          })
-        }
+        // if (data['welcome']) {
+        //   wx.navigateTo({
+        //     url: '../welcome/welcome',
+        //   })
+        // }
       }
       //服务器带回验证码
       else if (data['cmd'] == 200) {
@@ -274,5 +281,8 @@ Page({
       signed:true,
       record:this.data.record+1
     })
+    wx.showToast({
+      title: '成功',
+    });  
   },
 })

@@ -77,8 +77,9 @@ Page({
       var data = JSON.parse(res.data)
       //获取用户相关状态
       if (data['cmd'] == 210) {
-        var now=new Date().getTime()/1000
-        if(now-data['record_time']<=86400){
+        var last=new Date(data['record_time']*1000).getDay()
+        var now=new Date().getDay()
+        if(now-last<=0){
           that.setData({
             signed:true
           })

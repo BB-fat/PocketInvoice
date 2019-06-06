@@ -18,7 +18,8 @@
     </view>
     <view class='cardView'>
       <view class='cardItemView'>
-        <text class="cardItem card2-title">本月已签到</text>
+        <text wx:if="{{!signed}}" class="cardItem card2-title">您今天还未签到！</text>
+        <text wx:else class="cardItem card2-title">本月已签到</text>
         <view wx:if="{{!signed}}" class="cardItem card2-button">
           <template is='coolButton' data='{{...btn_sign}}' />
         </view>

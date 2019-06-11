@@ -79,7 +79,8 @@ Page({
       if (data['cmd'] == 210) {
         var last=new Date(data['record_time']*1000).getDay()
         var now=new Date().getDay()
-        if(now-last<=0){
+        console.log(last+'\n'+now)
+        if(now-last>=0){
           that.setData({
             signed:true
           })

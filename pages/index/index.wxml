@@ -32,6 +32,7 @@
     </view>
     <view class='cardView'>
       <view class='cardItemView'>
+        <image class="cardItem card3-img" src="../../imgs/index/banner_bills_filled.png"></image>
       </view>
     </view>
   </scroll-view>

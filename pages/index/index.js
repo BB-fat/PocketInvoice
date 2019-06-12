@@ -80,7 +80,7 @@ Page({
         var last=new Date(data['record_time']*1000).getDay()
         var now=new Date().getDay()
         console.log(last+'\n'+now)
-        if(now-last>=0){
+        if(now==last){
           that.setData({
             signed:true
           })

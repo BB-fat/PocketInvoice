@@ -1,3 +1,5 @@
+<import src='../../templates/myButton/myButton.wxml' />
+
 <view class='imagesize'>
   <image src="{{url}}" class='in-image' bindtap="change"></image>
 </view>
@@ -8,5 +10,5 @@
   <input class="section" placeholder="{{color}}" bindinput='bindKeyInput'value="{{inputValue}}" auto-focus/>
 </view>
 <view class='buttonview'>
-  <button class='button' type="primary" bindtap="send"> 点击查验 </button>
+    <template is="coolButton" data="{{...btn_check}}"></template>
 </view>

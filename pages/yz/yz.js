@@ -14,6 +14,13 @@ Page({
     url: '',
     color: '',
     inputValue: '',
+    btn_check: {
+      tapFun: 'send',
+      text: "点击查验",
+      color: "#EF9E1E",
+      width: 620,
+      mode: "mid"
+    },
   },
 
   /**

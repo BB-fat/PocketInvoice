@@ -43,12 +43,22 @@
 }
 
 .lineButton-symbol{
-  position: absolute;
-  right: 30rpx;
-  color: gray;
+  height: 25rpx;
+  width: 16rpx;
+  margin-left: 400rpx;
 }
 
 .coolButton-view{
+  height: 88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 36rpx;
+  color: white;
+  border-radius: 44rpx;
+}
+
+.slimcoolButton-view{
   height: 66rpx;
   display: flex;
   flex-direction: column;

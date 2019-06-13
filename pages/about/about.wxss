@@ -17,8 +17,8 @@
 
 .logo{
   margin-top: 102rpx;
-  height: 205rpx;
-  width: 205rpx;
+  height: 228rpx;
+  width: 206rpx;
 }
 
 .line{
@@ -42,6 +42,12 @@
 
 .rightText{
   color: #9E9E9E;
+  margin-right: 30rpx;
+}
+
+.rightText2{
+  height: 25rpx;
+  width: 16rpx;
   margin-right: 30rpx;
 }
 

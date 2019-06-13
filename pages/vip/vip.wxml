@@ -3,8 +3,8 @@
 
 <view class='mainView background'></view>
 <view class="second-floor mainView">
-    <image class="img" src="../../imgs/vip/purchase_pro.png"></image>
-    <text style="margin-top: 72rpx">批量快查告别等待</text>
+    <image class="img" src="../../imgs/vip/vip_purchase_pro.png"></image>
+    <text style="margin-top: 32rpx">批量快查告别等待</text>
     <text>智能分析准确直观</text>
     <view class="cardView-all" style="margin-top: 55rpx;">
         <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_120}}"></template>

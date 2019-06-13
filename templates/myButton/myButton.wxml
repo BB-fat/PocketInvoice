@@ -11,7 +11,7 @@
   <view class='lineButton-view' hover-class='lineButton-hover' bindtap='{{tapFun}}'>
     <image class='lineButton-img' src='{{iconSrc}}'></image>
     <text class='lineButton-text'>{{text}}</text>
-    <text class='lineButton-symbol'>></text>
+    <image class='lineButton-symbol' src='../../imgs/index/other_path_arrow.png'></image>
   </view>
 </template>
 
@@ -26,6 +26,21 @@
     <text class="coolButton-text" style="margin-left: 35rpx;">{{text}}</text>
   </view>
   <view wx:elif='{{mode=="right"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="coolButton-view"
+    style="align-items: flex-end;background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text" style="margin-right:35rpx;">{{text}}</text>
+  </view>
+</template>
+
+<template name='slimcoolButton'>
+  <view wx:if='{{mode=="mid"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="slimcoolButton-view"
+    style="align-items: center;background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text">{{text}}</text>
+  </view>
+  <view wx:elif='{{mode=="left"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="slimcoolButton-view"
+    style="align-items: flex-start;background-color:{{color}};width:{{width}}rpx">
+    <text class="coolButton-text" style="margin-left: 35rpx;">{{text}}</text>
+  </view>
+  <view wx:elif='{{mode=="right"}}' bindtap='{{tapFun}}' hover-class='default-hover' class="slimcoolButton-view"
     style="align-items: flex-end;background-color:{{color}};width:{{width}}rpx">
     <text class="coolButton-text" style="margin-right:35rpx;">{{text}}</text>
   </view>

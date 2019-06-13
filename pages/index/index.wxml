@@ -5,7 +5,7 @@
 <view class='second-floor second-floor-top' style='height:{{firstFloorHeight}}%'>
   <scroll-view class='scrollView' scroll-x>
     <view class='cardView'>
-      <view class='cardItemView'>
+      <view class='cardItemView1'>
         <open-data class='cardItem avatar' type='userAvatarUrl'></open-data>
         <open-data class='cardItem nickName' type='userNickName'></open-data>
         <view class='cardItem card1-midline'></view>
@@ -21,7 +21,7 @@
         <text wx:if="{{!signed}}" class="cardItem card2-title">您今天还未签到！</text>
         <text wx:else class="cardItem card2-title">本月已签到</text>
         <view wx:if="{{!signed}}" class="cardItem card2-button">
-          <template is='coolButton' data='{{...btn_sign}}' />
+          <template is='slimcoolButton' data='{{...btn_sign}}' />
         </view>
         <view wx:else class="cardItem card2-record">
           <text class="record">{{record}}</text>

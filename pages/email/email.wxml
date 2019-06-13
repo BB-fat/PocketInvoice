@@ -5,7 +5,7 @@
 
 <view wx:if='{{!binded&&!changebind}}' class='mainView topView'>
   <image class="emailPic" src='../../imgs/email/email_envelope_unlink.png'></image>
-  <view style="height:60rpx"></view>
+  <view style="height:2rpx"></view>
   <text class="text">Oops</text>
   <text class="text">您还未绑定邮箱，请绑定您的邮箱</text>
   <input class='input' style="width:620rpx;margin-top: 75rpx;" placeholder-class='input-placeholder'

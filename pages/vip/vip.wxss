@@ -19,8 +19,8 @@
 }
 
 .img{
-  width: 261rpx;
-  height: 252rpx;
+  width: 338rpx;
+  height: 331rpx;
   margin-top: 118rpx;
 }
 

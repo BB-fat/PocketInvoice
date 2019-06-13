@@ -1,4 +1,5 @@
 .mainview{
+  background-color: #6193cd;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -8,8 +9,15 @@
 .title{
   margin-top: 35rpx;
   width: 80%;
+  font-size: 40rpx;
+  color: #5087c8;
+}
+
+.title1{
+  margin-top: 35rpx;
+  width: 80%;
   font-size: 50rpx;
-  color: #368299;
+  color: #5087c8;
 }
 
 .text{
@@ -19,8 +27,18 @@
 }
 
 .button{
-  background-color: #368299;
+  background-color: #5087c8;
   color: white;
-  margin-top: 20rpx;
-  width: 70%;
+  margin-top: 220rpx;
+  height: 88rpx;
+  width: 620rpx;
+  border-radius: 44rpx;
+}
+.topView {
+  background-color: #F0F3F5;
+  height: 1334rpx;
+  border-radius: 88rpx 88rpx 0px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

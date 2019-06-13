@@ -2,21 +2,21 @@
 
 <view class="mainView backgroundView"></view>
 <view class='mainView topView'>
-  <image src='../../imgs/logo.png' class="logo"></image>
+  <image src='../../imgs/logo_reflection.png' class="logo"></image>
   <view style="height:100rpx"></view>
   <button class="line" hover-class='line-hover'>
     <text class="leftText">小程序版本</text>
-    <text class="rightText">v1.0.0</text>
+    <text class="rightText">v1.5.0</text>
   </button>
   <view class="xian"></view>
   <button bindtap="new" class="line" hover-class='line-hover'>
     <text class="leftText">新功能一览</text>
-    <text class="rightText">></text>
+    <image class='rightText2' src='../../imgs/index/other_path_arrow.png'></image>
   </button>
   <view style="height:30rpx"></view>
   <button class="line" open-type="share" hover-class='line-hover'>
     <text class="leftText">分享口袋发票</text>
-    <text class="rightText">></text>
+    <image class='rightText2' src='../../imgs/index/other_path_arrow.png'></image>
   </button>
   <text class="tiaokuan">《口袋发票服务条款》</text>
 </view>

@@ -30,8 +30,8 @@
 
 .emailPic {
   margin-top: 118rpx;
-  height: 177rpx;
-  width: 231rpx;
+  height: 254rpx;
+  width: 320rpx;
 }
 
 .text {

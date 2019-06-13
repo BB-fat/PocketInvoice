@@ -31,7 +31,11 @@
       </view>
     </view>
     <view class='cardView'>
-      <view class='cardItemView'>
+      <view class='cardItemView' bindtap="zhangdan">
+        <view class="cardItem card3-title">
+          <text>本月</text>
+          <text style="color: #EF9E1E">账单</text>
+        </view>
         <image class="cardItem card3-img" src="../../imgs/index/banner_bills_filled.png"></image>
       </view>
     </view>

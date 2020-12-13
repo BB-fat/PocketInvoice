@@ -1,0 +1,16 @@
+<template name="card">
+    <view wx:if="{{num!=count}}" class="cardView" bindtap="{{tapFun}}" data-count="{{count}}">
+        <view class="cardView-countView">
+            <text style="font-size: 40rpx;">{{count}}</text>
+            <text style="font-size: 30rpx">次</text>
+        </view>
+        <text style="font-size: 20rpx;color:rgb(196, 196, 196)">{{price}}¥</text>
+    </view>
+    <view wx:else class="cardView-taped" bindtap="{{tapFun}}"data-count="{{count}}">
+        <view class="cardView-countView">
+            <text style="font-size: 40rpx;">{{count}}</text>
+            <text style="font-size: 30rpx">次</text>
+        </view>
+        <text style="font-size: 20rpx;color:rgb(196, 196, 196)">{{price}}¥</text>
+    </view>
+</template>

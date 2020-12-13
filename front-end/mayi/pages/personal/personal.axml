@@ -1,0 +1,53 @@
+<view class='mainview' style='height:{{windowHeight}}px'>
+  <view a:if='{{haveUserInfo}}' class='card'>
+    <image src="{{avatar}}" class='AvatarUrl'/>
+    <text  class='NickName'>{{nickName}}</text>
+    <view class='xian'></view>
+    <text class='edu'>剩余批量查验额度</text>
+    <view class='ciview'>
+      <view class='vip'>{{userdata.vip}}</view>
+      <text class='ci'>次</text>
+    </view>
+  </view>
+  <view a:else class="Authview">
+    <button class="Auth" onTap="getAuth">点击领取批量查验额度</button>
+  </view>
+
+  <view class='settings'>
+
+    <view onTap='bindemail' class='line' style='height:{{windowHeight*0.08}}px'>
+      <image class='logo' src='email.png'></image>
+      <text a:if='{{!haveBindEmail}}' class='text'>绑定邮箱</text>
+      <text a:else class='text'>更换邮箱</text>
+      <text class='symbol'>></text>
+    </view>
+
+    <view class='vipview'>
+      <view class='divide'></view>
+
+      <view onTap='vip' class='line' style='height:{{windowHeight*0.08}}px'>
+        <image class='logo' src='piliang.png'></image>
+        <text class='text'>批量额度购买</text>
+        <text class='symbol'>></text>
+      </view>
+    </view>
+
+    <view class='divide'></view>
+
+    <view onTap='gowelcome' class='line' style='height:{{windowHeight*0.08}}px'>
+      <image class='logo' src='help.png'></image>
+      <text class='text'>使用帮助</text>
+      <text class='symbol'>></text>
+    </view>
+
+    <view class='divide'></view>
+
+    <view onTap='about' class='line' style='height:{{windowHeight*0.08}}px'>
+      <image class='logo' src='about.png'></image>
+      <text class='text'>关于我们</text>
+      <text class='symbol'>></text>
+    </view>
+
+    <view class='divide'></view>
+  </view>
+</view>

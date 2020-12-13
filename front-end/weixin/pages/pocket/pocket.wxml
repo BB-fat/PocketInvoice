@@ -1,0 +1,50 @@
+<!--pages/pocket/pocket.wxml-->
+<import src='../../templates/myInvoice/myInvoice.wxml' />
+<import src='../../templates/myButton/myButton.wxml' />
+
+<view class='mainView background'>
+  <view class="round-view"></view>
+  <scroll-view class='scroll' scroll-y>
+    <block wx:for="{{pocket}}">
+      <view wx:if='{{index!=0}}' style="height:200rpx;"></view>
+      <view class="scroll-view">
+        <template is='invoice' data='{{...item,checked:checked[index],invoiceWidth,tapFun:fun_one,index}}' />
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="buttonView">
+  <!-- 筛选模块 -->
+  <view wx:if='{{!piliang}}'>
+    <view class="btn-shaixuan">
+      <template is='coolButton' data='{{...btn_shaixuan}}' />
+    </view>
+    <view class="btn-zhuangtai">
+      <template is='coolButton' data='{{...btn_zhuangtai}}' />
+    </view>
+    <view class="btn-riqi">
+      <picker mode='date' fields='month' value='{{date}}' bindchange='changedate' hover-class='default-hover' class="coolButton-view" style="align-items: flex-end;background-color:#f5d333;width:{{btn_riqi.width}}rpx">
+        <view wx:if='{{date==0}}' class="coolButton-text" style="margin-right:35rpx;">选择月份</view>
+        <view wx:else class="coolButton-text" style="margin-right:35rpx;">{{date}}</view>
+      </picker>
+    </view>
+  </view>
+  <image wx:if='{{shaixuan}}' class="btn-offShaixuan" bindtap="offShaixuan" src="../../imgs/pocket/invoice_backicon_orange@2x.png">
+  </image>
+  <!-- 批量模块 -->
+  <view wx:if='{{!shaixuan}}'>
+    <view class="btn-piliang">
+      <template is='coolButton' data='{{...btn_piliang}}' />
+    </view>
+    <view class="btn-chooseall">
+      <template is="coolButton" data='{{...btn_chooseall}}' />
+    </view>
+    <view class="btn-delete">
+      <template is="coolButton" data='{{...btn_delete}}'></template>
+    </view>
+    <view class="btn-tongji">
+      <template is="coolButton" data='{{...btn_tongji}}'></template>
+    </view>
+  </view>
+  <image wx:if='{{piliang}}' class="btn_offPiliang" bindtap="offPiliang" src="../../imgs/pocket/invoice_backicon_purple@2x.png"></image>
+</view>

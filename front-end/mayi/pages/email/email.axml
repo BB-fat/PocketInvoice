@@ -1,0 +1,9 @@
+<!--pages/email/email.aml-->
+<view class='mainview'>
+  <input type='text' class='input-email' placeholder='请输入邮箱地址' onInput='address' value='{{address}}' disabled='{{disable_input}}'></input>
+  <view class='code-line'>
+    <input type='text' class='input-code' placeholder='请输入验证码' onInput='verity' value='{{verity}}'></input>
+    <button class='send-code' onTap='get_verity' disabled='{{disable_button}}'>{{button_text}}</button>
+  </view>
+    <button class='send' onTap='send'>确定 </button>
+</view>

@@ -1,0 +1,47 @@
+<!--pages/email/email.wxml-->
+<import src='../../templates/myButton/myButton'></import>
+
+<view class="mainView backgroundView"></view>
+
+<view wx:if='{{!binded&&!changebind}}' class='mainView topView'>
+  <image class="emailPic" src='../../imgs/email/email_envelope_unlink.png'></image>
+  <view style="height:2rpx"></view>
+  <text class="text">Oops</text>
+  <text class="text">您还未绑定邮箱，请绑定您的邮箱</text>
+  <input class='input' style="width:620rpx;margin-top: 75rpx;" placeholder-class='input-placeholder'
+    placeholder='请输入邮箱地址' bindinput='address' value='{{address}}' disabled='{{disable_input}}'></input>
+  <view class='code-line'>
+    <input class='input' style="width:300rpx" placeholder-class='input-placeholder' placeholder='请输入验证码'
+      bindinput='verity' value='{{verity}}'></input>
+    <template is='coolButton' data="{{...btn_verity}}"></template>
+  </view>
+  <view style="height:50rpx"></view>
+  <template is='coolButton' data="{{...btn_send}}"></template>
+</view>
+
+<view wx:if='{{binded&&!changebind}}' class='mainView topView'>
+  <image class="emailPic" src='../../imgs/email/email_envelope_linked.png'></image>
+  <view style="height:60rpx"></view>
+  <text class="text">您以成功绑定邮箱</text>
+  <text class="text">请随时查收您的发票</text>
+  <input class='input' style="width:620rpx;margin-top: 75rpx;" placeholder-class='input-placeholder'
+    placeholder='{{address}}' disabled='{{true}}'></input>
+  <view style="height:50rpx"></view>
+  <template is='coolButton' data="{{...btn_changebind}}"></template>
+</view>
+
+<view wx:if='{{changebind}}' class='mainView topView'>
+  <image class="emailPic" src='../../imgs/email/email_envelope_change.png'></image>
+  <view style="height:60rpx"></view>
+  <text class="text">若要改变现有的邮箱</text>
+  <text class="text">请输入要更改的新邮箱</text>
+  <input class='input' style="width:620rpx;margin-top: 75rpx;" placeholder-class='input-placeholder'
+    placeholder='请输入邮箱地址' bindinput='address' value='{{address}}' disabled='{{disable_input}}'></input>
+  <view class='code-line'>
+    <input class='input' style="width:300rpx" placeholder-class='input-placeholder' placeholder='请输入验证码'
+      bindinput='verity' value='{{verity}}'></input>
+    <template is='coolButton' data="{{...btn_verity}}"></template>
+  </view>
+  <view style="height:50rpx"></view>
+  <template is='coolButton' data="{{...btn_send}}"></template>
+</view>

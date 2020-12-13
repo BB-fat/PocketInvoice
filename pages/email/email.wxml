@@ -1,9 +1,0 @@
-<!--pages/email/email.wxml-->
-<view class='mainview'>
-  <input type='text' class='input-email' placeholder='请输入邮箱地址' bindinput='address' value='{{address}}' disabled='{{disable_input}}'></input>
-  <view class='code-line'>
-    <input type='text' class='input-code' placeholder='请输入验证码' bindinput='verity' value='{{verity}}'></input>
-    <button class='send-code' bindtap='get_verity' disabled='{{disable_button}}'>{{button_text}}</button>
-  </view>
-    <button class='send' bindtap='send'>确定 </button>
-</view>

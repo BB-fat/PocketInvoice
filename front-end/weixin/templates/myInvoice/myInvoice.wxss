@@ -1,0 +1,97 @@
+.invoice-view{
+  position: absolute;
+  width: 710rpx;
+  height: 176rpx;
+}
+
+.invoice-backgroundImg{
+  height: 100%;
+  width: 100%;
+}
+
+.invoice-backgroundImg2{
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.invoice-second-floor{
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoice-first-floor{
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.invoice-checkbox{
+  height: 44rpx;
+  width: 44rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+.invoice-midline{
+  position: absolute;
+  width: 90%;
+  height: 5rpx;
+  background-color: #e7e7e7;
+}
+
+.invoice-tagcorner{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44rpx;
+  width: 44rpx;
+  border-radius: 17rpx 0 0 0;
+}
+
+.invoice-type{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  height: 55rpx;
+  width: 55rpx;
+}
+
+.invoice-fp_zl{
+  position: absolute;
+  font-size: 34rpx;
+  left: 56rpx;
+  top: 27rpx;
+}
+
+.invoice-kprq-view{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  left: 56rpx;
+  top:65%;
+}
+
+.invoice-data-title{
+  color: #c2c2c2;
+}
+
+.invoice-kpje-view{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 24rpx;
+  right: 30rpx;
+  top:65%;
+}

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pocket/pocket",
+    "pages/yz/yz",
+    "pages/email/email",
+    "pages/welcome/welcome",
+    "pages/manual/manual",
+    "pages/personal/personal",
+    "pages/vip/vip",
+    "pages/about/about",
+    "pages/result/result"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#6193cd",
+    "navigationBarTitleText": "口袋发票",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f3f5"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,29 @@
+/* pages/vip/vip.wxss */
+  
+  .cardView{
+    width: 200rpx;
+    height: 120rpx;
+    border-radius: 10rpx;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  }
+  
+  .cardView-countView{
+    width: 110rpx;
+    display: inline;
+    text-align:center
+  }
+  
+  .cardView-taped{
+    width: 200rpx;
+    height: 120rpx;
+    border-radius: 10rpx;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(228, 228, 228);
+  }

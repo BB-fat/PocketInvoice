@@ -1,0 +1,32 @@
+@import "../../templates/priceCard/priceCard.wxss";
+@import "../../templates/myButton/myButton.wxss";
+
+.second-floor {
+  position: absolute;
+  z-index: 1;
+  background-color: #f0f3f5;
+  border-radius: 88rpx 88rpx 0rpx 0rpx;
+  height: 100%;
+  width: 100%;
+  bottom: 0rpx;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+  background-color: #6193cd;
+  background: linear-gradient(to right, #31a1da, #5087c8  , #5463dc );
+}
+
+.img{
+  width: 338rpx;
+  height: 331rpx;
+  margin-top: 118rpx;
+}
+
+.cardView-all{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 620rpx;
+}

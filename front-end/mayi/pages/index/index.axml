@@ -1,0 +1,23 @@
+<view class='mainview' style='height: {{windowHeight}}px;'>
+  <view class='menu'>
+    <view  a:if='{{mainhide}}'>
+      <view style='height:200rpx;'></view>
+      <view class='line' onTap='saveinvoice'>
+        <image class='icon' src='2.png'></image>
+        <text class='text'>扫描录入</text>
+        <image class='triangle' src='bluetriangle.png'></image>
+      </view>
+      <view class='line' onTap='tapQueryEvent'>
+        <image class='icon' src='3.png'></image>
+        <text class='text'>单张查验</text>
+        <image class='triangle' src='bluetriangle.png'></image>
+      </view>
+      <view class='line' onTap='manual'>
+        <image class='icon' src='1.png'></image>
+        <text class='text'>手动输入</text>
+        <image class='triangle' src='bluetriangle.png'></image>
+      </view>
+    </view>
+    <image class='gif' src='wait.gif' a:else></image>
+  </view>
+</view>

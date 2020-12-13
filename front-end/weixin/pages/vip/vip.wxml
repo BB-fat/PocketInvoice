@@ -1,0 +1,21 @@
+<import src="../../templates/priceCard/priceCard.wxml"></import>
+<import src='../../templates/myButton/myButton.wxml' />
+
+<view class='mainView background'></view>
+<view class="second-floor mainView">
+    <image class="img" src="../../imgs/vip/vip_purchase_pro.png"></image>
+    <text style="margin-top: 32rpx">批量快查告别等待</text>
+    <text>智能分析准确直观</text>
+    <view class="cardView-all" style="margin-top: 55rpx;">
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_120}}"></template>
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_60}}"></template>
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_35}}"></template>
+    </view>
+    <view class="cardView-all" style="margin-top: 11rpx;">
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_12}}"></template>
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_6}}"></template>
+        <template is="card" data="{{num:chooseOne,tapFun:'tapFun',...btn_1}}"></template>
+    </view>
+    <view style="height: 60rpx;"></view>
+    <template is='coolButton' data='{{...btn_pay}}'/>
+</view>

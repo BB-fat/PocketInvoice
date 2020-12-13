@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/yz/yz",
+    "pages/result/result",
+    "pages/email/email",
+    "pages/manual/manual",
+    "pages/welcome/welcome",
+    "pages/vip/vip",
+    "pages/about/about",
+    "pages/personal/personal"
+  ],
+  "window": {
+    "titleBarColor": "#368299",
+    "defaultTitle": "口袋发票",
+    "backgroundColor": "#368299"
+  },
+  "tabBar": {
+    "textColor": "#2a5caa",
+    "selectedColor": "#2a5caa",
+    "backgroundColor": "#FFFFFF",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "查验",
+        "icon": "imgs/_checkicon.png",
+        "activeIcon": "imgs/checkicon.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "发票夹",
+        "icon": "imgs/_mineicon.png",
+        "activeIcon": "imgs/mineicon.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "name": "个人",
+        "icon": "imgs/_personal.png",
+        "activeIcon": "imgs/personal.png"
+      }
+    ]
+  }
+}

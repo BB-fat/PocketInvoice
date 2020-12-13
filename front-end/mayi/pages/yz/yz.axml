@@ -1,0 +1,9 @@
+<view class="mainview" style='height:{{windowHeight}}px'>
+  <image src="{{url}}" class='pic' onTap="change">
+  </image>
+    <text class='wenzi'>点击图片更换验证码
+    </text>
+    <input class="section" placeholder="{{color}}" onInput='bindKeyInput'value="{{inputValue}}" auto-focus/>
+    <button class='button' type="primary" onTap="send"> 点击查验 
+    </button>
+</view>

@@ -1,0 +1,70 @@
+<!--index.aml-->
+<view class='mainview' style='height:{{windowHeight}}px'>
+  <view class='title' style='height:{{windowHeight*0.08}}px'>
+    <view class='title_text'>发票夹</view>
+    <image a:if='{{!shaixuan}}' src='shaixuan.png' class='shaixuan' onTap='shaixuan'></image>
+    <image a:else src='_shaixuan.png' class='shaixuan' onTap='shaixuan'></image>
+    <image a:if='{{!piliang}}' src='piliang.png' class='piliang' onTap='piliang'></image>
+    <image a:else src='_piliang.png' class='piliang' onTap='piliang'></image>
+  </view>
+  <!-- 筛选模块 -->
+  <view a:if='{{shaixuan}}' class='mode' style='height:{{windowHeight*0.08}}px'>
+    <view class='riqi'>日期</view>
+    <view class='fuhao'>
+      <image src='bluetriangle.png' class='bluetriangle'></image>
+    </view>
+    <picker class='_shaixuan' a:if='{{shaixuan==true}}' mode='date' fields='month' value='{{date}}' onChange='changedate'>
+      <view a:if='{{date==0}}'>点击选择月份</view>
+      <view a:else>{{date}}</view>
+    </picker>
+    <button class='all' a:if='{{date!=0}}' onTap='all'>全部发票</button>
+  </view>
+
+  <!-- 当用户发票夹中有数据的时候才渲染发票 -->
+  <scroll-view class='invoices' scroll-y='true' enable-back-to-top='true' a:if="{{pocket!=''}}" style='height: {{scroll_height}}px'>
+    <view a:if='{{piliang}}'>
+      <view class='choosebuttonview' a:if='{{!chooseall}}'>
+        <button class='choosebutton' onTap='chooseall'>全选所有</button>
+        <button class='choosebutton' onTap='choosechecked'>全选已查</button>
+        <button class='choosebutton' onTap='chooseunchecked'>全选未查</button>
+      </view>
+      <button a:else class='unchoosebutton' onTap='chooseall'>取消全选</button>
+    </view>
+    <view class='one' a:for="{{pocket}}" class='invoice' onTap='{{fun_one}}' data-id='{{index}}' longTap='piliang'>
+      <checkbox a:if='{{piliang}}' class='check' checked='{{checked[index]}}' data-id='{{index}}'></checkbox>
+      <view class="oneinvoice">
+        <view style='height:40rpx'></view>
+        <view class='line'>
+          <view class='index'>发票类型</view>
+          <view class='fp'>{{item.fp_zl}}</view>
+        </view>
+        <view class='line'>
+          <view class='index'>发票号码</view>
+          <view class='fp'>{{item.fp_hm}}</view>
+        </view>
+        <view class='line'>
+          <view class='index'>开票金额</view>
+          <view class='fp'>{{item.kp_je}}</view>
+        </view>
+        <view class='line'>
+          <view class='index'>开票日期</view>
+          <view class='fp'>{{item.kp_rq}}</view>
+        </view>
+        <view class='line'>
+          <view class='index'>查验状态</view>
+          <view class='state0' a:if='{{item.state==0}}'>未查验</view>
+          <view a:else class='state1'>已查验</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 用户发票夹为空 -->
+  <view a:elif='{{pocket==""&&shaixuan==false}}' style='align-self:center;margin-top:40rpx;color:#848484;height:{{windowHeight*0.73}}px'>——您的发票夹是空的——</view>
+  <view a:else style='align-self:center;margin-top:40rpx;color:#848484;height:{{windowHeight*0.73}}px'>——该时间段查无发票——</view>
+  <!-- 批处理模块 -->
+  <view a:if='{{piliang}}' class='mode' style='height:{{windowHeight*0.08}}px'>
+    <button class='_piliang' style='color:#368299' onTap='checkall'>一键查验</button>
+    <button  style='margin-left: {{windowWidth*(1-0.28*3)/2}}px' class='_piliang' onTap='excel'>生成统计表</button>
+    <button class='_piliang' style='color:#ED7085;margin-left:  {{windowWidth*(1-0.28*3)/2}}px' onTap='deleteall'>删除</button>
+  </view>
+</view>

@@ -1,0 +1,167 @@
+/* pages/newindex/newindex.wxss */
+@import "../../templates/myButton/myButton.wxss";
+
+
+
+.second-floor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.second-floor-top {
+  width: 100%;
+  height: 40%;
+}
+
+.avatar {
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+
+.nickName {
+  font-size: 40rpx;
+  margin-top: 185rpx;
+  color: black;
+}
+
+.scrollView {
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.cardView {
+  margin-top: 5rpx;
+  margin-left: 40rpx;
+  display: inline-block;
+}
+
+.cardItemView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  height: 480rpx;
+  width: 380rpx;
+  border-radius: 16rpx 16rpx 16rpx 16rpx;
+  box-shadow: rgba(90, 90, 90, 0.3) -1px 2px 1px 2px;
+}
+
+.cardItemView1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafdff;
+  height: 480rpx;
+  width: 380rpx;
+  border-radius: 16rpx 16rpx 16rpx 16rpx;
+  box-shadow: rgba(90, 90, 90, 0.3) -1px 2px 1px 2px;
+}
+
+.cardItem {
+  position: absolute;
+  z-index: 3;
+}
+
+.card1-midline {
+  width: 340rpx;
+  height: 4rpx;
+  background-color: #f0f3f5;
+  margin-top: 240rpx;
+}
+
+.card1-firstline {
+  margin-top: 270rpx;
+  color: #6193cd;
+  font-size: 28rpx;
+}
+
+.card1-secondline {
+  margin-top: 320rpx;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.card1-secondline-ci {
+  font-size: 30rpx;
+  color: #6193cd;
+  align-self: flex-end;
+  margin-bottom: 19rpx;
+}
+
+.buttonView-background {
+  height: 220rpx;
+  width: 100%;
+  background-color: #fafdff;
+  border-radius: 88rpx 88rpx 0px 0px;
+}
+
+.buttonView {
+  position: absolute;
+  z-index: 2;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.second-floor-bottom {
+  background-color: #f0f3f5;
+  border-radius: 88rpx 88rpx 0rpx 0rpx;
+  height: 660rpx;
+  width: 100%;
+  bottom: 0rpx;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+  background-color: #6193cd;
+  background: linear-gradient(to right, #31a1da, #5087c8  , #5463dc );
+}
+
+.card2-title{
+  margin-top: 46rpx;
+  font-size:40rpx;
+}
+
+.card2-button{
+  margin-top: 110rpx;
+}
+
+.card2-img{
+  height: 480rpx;
+  width: 380rpx;
+  z-index: 0;
+}
+
+.card2-record{
+  margin-top: 100rpx;
+  display: inline;
+}
+
+.record{
+  font-size: 60rpx;
+  color: #cd5242;
+}
+
+.card3-img{
+  height: 480rpx;
+  width: 380rpx;
+}
+
+.card3-title{
+  display: inline;
+  margin-top: 46rpx;
+  font-size: 40rpx
+}

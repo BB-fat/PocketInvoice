@@ -1,0 +1,14 @@
+<import src='../../templates/myButton/myButton.wxml' />
+
+<view class='imagesize'>
+  <image src="{{url}}" class='in-image' bindtap="change"></image>
+</view>
+<view class='wenzikuang'>
+  <text class='wenzi'>点击图片更换验证码</text>
+</view>
+<view class='mainsection'>
+  <input class="section" placeholder="{{color}}" bindinput='bindKeyInput'value="{{inputValue}}" auto-focus/>
+</view>
+<view class='buttonview'>
+    <template is="coolButton" data="{{...btn_check}}"></template>
+</view>

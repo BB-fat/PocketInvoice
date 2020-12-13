@@ -1,0 +1,26 @@
+.mainview{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title{
+  margin-top: 35rpx;
+  width: 80%;
+  font-size: 50rpx;
+  color: #368299;
+}
+
+.text{
+  margin-top: 15rpx;
+  width: 80%;
+  font-size: 30rpx;
+}
+
+.button{
+  background-color: #368299;
+  color: white;
+  margin-top: 20rpx;
+  width: 70%;
+}

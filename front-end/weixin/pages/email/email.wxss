@@ -1,0 +1,64 @@
+/* pages/email/email.wxss */
+
+@import "../../templates/myButton/myButton.wxss";
+.backgroundView {
+  background-color: #6193cd;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.topView {
+  background-color: #F0F3F5;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  border-radius: 88rpx 88rpx 0px 0px;
+}
+
+.input {
+  height: 88rpx;
+  background-color: #FAFDFF;
+  border-radius: 44rpx;
+  text-align: center;
+}
+
+.input-placeholder {
+  font-size: 31rpx;
+  color: #9E9E9E;
+}
+
+.emailPic {
+  margin-top: 118rpx;
+  height: 254rpx;
+  width: 320rpx;
+}
+
+.text {
+  font-size: 34rpx;
+}
+
+.code-line {
+  width: 620rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+
+.send-code {
+  height: 88rpx;
+  width: 300rpx;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  background-color: #5087C8;
+  color: white
+}
+
+.send {
+  width: 80%;
+  margin-top: 150rpx;
+  color: #FFFFFF;
+  background-color: #368299;
+}

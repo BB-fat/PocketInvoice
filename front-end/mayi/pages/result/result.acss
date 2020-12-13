@@ -1,0 +1,114 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.fp {
+  width: 100%;
+  align-self: center;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.topline {
+  align-self: center;
+  font-size: 36rpx;
+  color: #a62027;
+  margin-top: 83rpx;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+  margin-top: 50rpx;
+  font-size: 30rpx;
+}
+
+.textbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.topic {
+  margin-top: 30rpx;
+  margin-left: 70rpx;
+  color: #b1b1b1b1;
+}
+
+.item {
+  margin-top: 30rpx;
+  margin-right: 70rpx;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%
+}
+
+.button {
+  border-color: #368299;
+  border-width: 1rpx;
+  width: 91.3%;
+  margin-top: 30rpx;
+  border-style:solid;
+  align-self: center;
+}
+
+.unchecked{
+  height: 7%;
+  width: 21%;
+  margin-left: 539rpx;
+  margin-top: 20rpx;
+}
+
+.checkedinfo{
+  display: flex;
+  flex-direction: column;
+}
+
+#attrs{
+  margin-top: 30rpx;
+  width:82%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 26rpx;
+  color:#b1b1b1b1; 
+}
+
+.swiper{
+  height: 215rpx;
+  width: 82%;
+  align-self: center;
+  font-size: 20rpx;
+}
+
+.swiper-item{
+  display: flex;
+  flex-direction: row;
+  margin-top: 13rpx;
+}
+
+.moreinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.xian{
+  width: 65%;
+  height: 2rpx;
+  background-color: #81511C;
+  opacity: 0.25;
+  align-self: center;
+  margin-top: 30rpx;
+}

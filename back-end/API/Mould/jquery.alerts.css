@@ -1,0 +1,73 @@
+#popup_container {
+	font-family: MicroSoft YaHei,Arial, sans-serif;
+	font-size: 14px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	box-shadow:0 5px 5px rgba(0,0,0,0.6);
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 3em;
+	color: #333;
+	background: #CCC url(../images/title.gif) top repeat-x;
+	border: solid 0px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em; -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_content {
+    background: no-repeat url(../images/info_new.png) 26px 26px; 
+	padding: 2em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.info {
+	background-image: url(../images/success_new.png);
+}
+
+#popup_content.alert {
+	background-image: url(../images/info_new.png);
+}
+
+#popup_content.confirm {
+	background-image: url(../images/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(../images/help.gif);
+}
+
+#popup_message {
+	text-align: center;
+	padding-left: 50px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em -10em;
+}
+
+
+.bluebtn,.redbtn,.graybtn,.blackbtn,.whitebtn,.greenbtn{box-shadow:0 5px 5px rgba(0,0,0,0.2); height:30px; line-height:30px; padding:0 20px;-moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;font:normal 12px "MicroSoft YaHei","SimSun"; margin:0 5px; margin-top:20px;}
+.graybtn{border:1px solid #c5c5c5; background:#ddd;color:#999;}
+.whitebtn{border:1px solid #888; background:#fff;}
+.bluebtn{border:1px solid #005bbb; background:#007bd5; color:#fff;}
+.redbtn{border:1px solid #b23a30; background:#dc3224;color:#fff;}
+.greenbtn{border:1px solid #427e3d; background:#58a952;color:#fff;}
+.blackbtn{border:1px solid #b8b8b8; background:#e0e0e0; color:#555;}
